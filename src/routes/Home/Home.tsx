@@ -54,6 +54,12 @@ const Home = () => {
             alt="Acessibilidade"
             onClick={() => console.log("Contraste ativado")}
           />
+                    <IconCard
+            title="Pesquisa de satisfação"
+            imgSrc="/imagens/icones/feedback.png"
+            alt="Acessibilidade"
+            link="/feedback"
+          />
         </section> 
         
         <aside> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
