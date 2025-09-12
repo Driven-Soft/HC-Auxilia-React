@@ -22,7 +22,7 @@ const Header = () => {
      <div> {/* header direito */}
       <div> {/* busca */}
           <img src="/imagens/icones/pesquisar.png" alt="Pesquisar" />
-          <input type="text" placeholder="Pesquisar" />
+          <input type="search" name="search" placeholder="Pesquisar" />
       </div>
       <div id="burger" > {/* class = burger */}
         <img src="/imagens/icones/burger.png" alt="Mais Opções" />

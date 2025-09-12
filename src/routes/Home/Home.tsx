@@ -1,15 +1,16 @@
+import AgendaCard from "../../components/AgendaCard"
 import IconCard from "../../components/IconCard"
 
 const Home = () => {
   return (
     <main>
       <section> {/*SEÇÃO  DO MAIN GERAL*/}
-        <section className="p-4 grid grid-cols-4 gap-4"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
+        <section> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
           <IconCard
             title="Assistente Virtual"
             imgSrc="/imagens/icones/assistente.png"
             alt="Assistente Virtual"
-            onClick={() => alert("Abrindo chat...")}
+            onClick={() => window.toggleWatsonChat && window.toggleWatsonChat()}
           />
           <IconCard
             title="Área do Cuidador"
@@ -56,7 +57,20 @@ const Home = () => {
         </section> 
         
         <aside> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
+          <h1>Veja aqui seus agendamentos marcados!</h1>
+          <div> {/* CARDS DE AGENDAMENTOS */}
+            <AgendaCard agendamento="Exame de rotina" data="20/10" horario="10:10h"
+            detalhes="Exame de rotina com Dra. Beatrici - Rua Exemplar Souza, 204, São Paulo - SP" />
 
+            <AgendaCard agendamento="Colonoscopia" data="03/11" horario="17:00h"
+            detalhes="Colonoscopia com Dr. Hayashi - Rua Exemplar Souza, 204, São Paulo - SP" />
+
+            <AgendaCard agendamento="Endoscopia" data="25/11" horario="14:00h"
+            detalhes="Endoscopia com Dr. Henrique - Rua Exemplar Souza, 204, São Paulo - SP" />
+
+            <AgendaCard agendamento="Hemograma" data="16/12" horario="08:30h"
+            detalhes="Hemograma com Dr. Aurélio - Rua Exemplar Souza, 204, São Paulo - SP" />
+          </div>
         </aside>
       </section>
     </main>
