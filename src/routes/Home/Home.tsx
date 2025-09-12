@@ -1,6 +1,6 @@
 import AgendaCard from "../../components/AgendaCard"
 import IconCard from "../../components/IconCard"
-
+ 
 const Home = () => {
   return (
     <main>
@@ -52,7 +52,7 @@ const Home = () => {
             title="Alto Contraste"
             imgSrc="/imagens/icones/acessibilidade.png"
             alt="Acessibilidade"
-            onClick={() => console.log("Contraste ativado")}
+            onClick={() => alert("Contraste ativado")}
           />
                     <IconCard
             title="Pesquisa de satisfação"
@@ -60,20 +60,20 @@ const Home = () => {
             alt="Acessibilidade"
             link="/feedback"
           />
-        </section> 
-        
+        </section>
+       
         <aside> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
           <h1>Veja aqui seus agendamentos marcados!</h1>
           <div> {/* CARDS DE AGENDAMENTOS */}
             <AgendaCard agendamento="Exame de rotina" data="20/10" horario="10:10h"
             detalhes="Exame de rotina com Dra. Beatrici - Rua Exemplar Souza, 204, São Paulo - SP" />
-
+ 
             <AgendaCard agendamento="Colonoscopia" data="03/11" horario="17:00h"
             detalhes="Colonoscopia com Dr. Hayashi - Rua Exemplar Souza, 204, São Paulo - SP" />
-
+ 
             <AgendaCard agendamento="Endoscopia" data="25/11" horario="14:00h"
             detalhes="Endoscopia com Dr. Henrique - Rua Exemplar Souza, 204, São Paulo - SP" />
-
+ 
             <AgendaCard agendamento="Hemograma" data="16/12" horario="08:30h"
             detalhes="Hemograma com Dr. Aurélio - Rua Exemplar Souza, 204, São Paulo - SP" />
           </div>
@@ -82,5 +82,5 @@ const Home = () => {
     </main>
   )
 }
-
+ 
 export default Home

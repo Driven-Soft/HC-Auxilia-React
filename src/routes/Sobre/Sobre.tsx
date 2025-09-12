@@ -1,19 +1,16 @@
 const Sobre = () => {
   return (
     <section>
-        <h3>Contato:</h3>
+        <h3>Sobre o HC Auxilia:</h3>
         <div>
-            <h4>Hospital das Clínicas da Faculdade de Medicina da Universidade de São Paulo</h4>
-            <br />
-            <h5>Endereço:</h5>
-            <p>Av. Doutor Enéas Carvalho Aguiar, 255</p>
-            <p>Cerqueira César</p>
-            <p>05403-000</p>
-            <p>São Paulo - Brasil</p>
-            <p>Tel.: (0xx11) 2661-0000</p>
+            <p>O HC Auxilia é uma solução desenvolvida para reduzir as barreiras digitais no acesso ao Portal do Paciente do Hospital das Clínicas.</p>
+            <p>Seu objetivo é apoiar pacientes, cuidadores e familiares em toda a jornada de saúde, tornando o acompanhamento mais simples, acessível e intuitivo.</p>
+            <p>Com ele, a experiência digital deixa de ser um obstáculo e se transforma em um aliado no cuidado, ajudando a diminuir o absenteísmo em consultas e fortalecendo a relação entre paciente e hospital.</p>
+            <p>O HC Auxilia promove inclusão digital, reduz o absenteísmo em consultas e aproxima cada paciente do cuidado com a própria saúde.</p>
         </div>
     </section>
   )
 }
-
+ 
 export default Sobre
+ 
