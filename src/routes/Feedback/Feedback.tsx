@@ -1,6 +1,11 @@
+import VoltarButton from "../../components/VoltarButton"
+
 const Feedback = () => {
   return (
-    <div>Feedback</div>
+    <section>
+      <h3>Pesquisa de satisfação: </h3>
+      <VoltarButton />
+    </section>
   )
 }
 

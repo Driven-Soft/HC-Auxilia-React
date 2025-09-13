@@ -1,3 +1,5 @@
+import VoltarButton from "../../components/VoltarButton"
+
 const Contato = () => {
   return (
     <section>
@@ -11,8 +13,10 @@ const Contato = () => {
             <p>São Paulo - Brasil</p>
             <p>Tel.: (0xx11) 2661-0000</p>
         </div>
+
+        <VoltarButton />
     </section>
   )
 }
- 
+
 export default Contato

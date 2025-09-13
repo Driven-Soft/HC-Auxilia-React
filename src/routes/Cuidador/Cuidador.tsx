@@ -1,6 +1,11 @@
+import VoltarButton from "../../components/VoltarButton"
+
 const Cuidador = () => {
   return (
-    <div>Cuidador</div>
+    <section>
+      <h3>Área do cuidador: </h3>
+      <VoltarButton />
+    </section>
   )
 }
 

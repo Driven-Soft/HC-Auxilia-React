@@ -1,3 +1,5 @@
+import VoltarButton from "../../components/VoltarButton"
+
 const Sobre = () => {
   return (
     <section>
@@ -8,9 +10,10 @@ const Sobre = () => {
             <p>Com ele, a experiência digital deixa de ser um obstáculo e se transforma em um aliado no cuidado, ajudando a diminuir o absenteísmo em consultas e fortalecendo a relação entre paciente e hospital.</p>
             <p>O HC Auxilia promove inclusão digital, reduz o absenteísmo em consultas e aproxima cada paciente do cuidado com a própria saúde.</p>
         </div>
+
+        <VoltarButton />
     </section>
   )
 }
- 
+
 export default Sobre
- 

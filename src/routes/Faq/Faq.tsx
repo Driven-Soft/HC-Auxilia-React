@@ -1,6 +1,11 @@
+import VoltarButton from "../../components/VoltarButton"
+
 const Faq = () => {
   return (
-    <div>Faq</div>
+    <section>
+      <h3>FAQ: </h3>
+      <VoltarButton />
+    </section>
   )
 }
 
