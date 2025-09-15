@@ -1,4 +1,5 @@
 import { useState } from "react";
+import seta from "/src/assets/icones/seta.png";
 
 interface AgendaCardProps {
   agendamento: string;
@@ -18,7 +19,7 @@ const AgendaCard = ({ agendamento, data, horario, detalhes }: AgendaCardProps) =
     <div onClick={toggleDetalhes}>
       <div>
         <p><strong>{agendamento}</strong> - {data} {horario}</p>
-        <img src="/imagens/icones/seta.png" alt="Exibir detalhes" />
+        <img src={seta} alt="Exibir detalhes" />
       </div>
 
       {mostrarDetalhes && (

@@ -1,3 +1,7 @@
+import felipeImg from "../assets/fotos/felipe.png";
+import maxImg from "../assets/fotos/max.png";
+import henriqueImg from "../assets/fotos/henrique.png";
+
 export interface Integrante {
   rm: string;
   nome: string;
@@ -12,7 +16,7 @@ export const integrantes: Integrante[] = [
   {
     nome: "Felipe Bezerra Beatriz",
     rm: "564723",
-    img: "/src/assets/fotos/felipe.png",
+    img: felipeImg,
     git: "https://github.com/FelipeBeatriz",
     linkedIn: "https://www.linkedin.com/in/felipe-bezerra-beatriz-b1b16b356/",
     email: "felipe.beatriz199@gmail.com",
@@ -21,7 +25,7 @@ export const integrantes: Integrante[] = [
   {
     nome: "Max Hayashi Batista",
     rm: "563717",
-    img: "/src/assets/fotos/max.png",
+    img: maxImg,
     git: "https://github.com/y3llowhusky",
     linkedIn: "https://www.linkedin.com/in/max-hayashi-batista-572622356/",
     email: "hayashibatista@gmail.com",
@@ -30,7 +34,7 @@ export const integrantes: Integrante[] = [
   {
     nome: "Henrique Cunha Torres",
     rm: "565119",
-    img: "/src/assets/fotos/henrique.png",
+    img: henriqueImg,
     git: "https://github.com/HenriqueCTorres",
     linkedIn: "https://www.linkedin.com/in/henrique-cunha-torres-44940634a/",
     email: "henriquect08@gmail.com",

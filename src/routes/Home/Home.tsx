@@ -1,6 +1,15 @@
 import AgendaCard from "../../components/AgendaCard"
 import IconCard from "../../components/IconCard"
- 
+import assistenteIcon from "../../assets/icones/assistente.png";
+import cuidadoresIcon from "../../assets/icones/cuidadores.png";
+import faqIcon from "../../assets/icones/faq.png";
+import consultasIcon from "../../assets/icones/consultas.png";
+import examesIcon from "../../assets/icones/exames.png";
+import receitasIcon from "../../assets/icones/receitas.png";
+import perfilIcon from "../../assets/icones/perfil.png";
+import acessibilidadeIcon from "../../assets/icones/acessibilidade.png";
+import feedbackIcon from "../../assets/icones/feedback.png";
+
 const Home = () => {
   return (
     <main>
@@ -8,72 +17,72 @@ const Home = () => {
         <section> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
           <IconCard
             title="Assistente Virtual"
-            imgSrc="/imagens/icones/assistente.png"
+            imgSrc={assistenteIcon}
             alt="Assistente Virtual"
             onClick={() => window.toggleWatsonChat && window.toggleWatsonChat()}
           />
           <IconCard
             title="Área do Cuidador"
-            imgSrc="/imagens/icones/cuidadores.png"
+            imgSrc={cuidadoresIcon}
             alt="Cuidadores"
             link="/cuidador"
           />
           <IconCard
             title="FAQ"
-            imgSrc="/imagens/icones/faq.png"
+            imgSrc={faqIcon}
             alt="Manuais e Ajuda"
             link="/faq"
           />
           <IconCard
             title="Minhas Consultas"
-            imgSrc="/imagens/icones/consultas.png"
+            imgSrc={consultasIcon}
             alt="Consultas"
             href="https://portaldopaciente.hc.fm.usp.br/agendamentos"
           />
           <IconCard
             title="Meus Exames"
-            imgSrc="/imagens/icones/exames.png"
+            imgSrc={examesIcon}
             alt="Exames"
             href="https://portaldopaciente.hc.fm.usp.br/resultados"
           />
           <IconCard
             title="Minhas Receitas"
-            imgSrc="/imagens/icones/receitas.png"
+            imgSrc={receitasIcon}
             alt="Receitas Médicas"
             href="https://portaldopaciente.hc.fm.usp.br/receitas"
           />
           <IconCard
             title="Perfil do Paciente"
-            imgSrc="/imagens/icones/perfil.png"
+            imgSrc={perfilIcon}
             alt="Perfil do Paciente"
             href="https://portaldopaciente.hc.fm.usp.br/meus-dados"
           />
           <IconCard
             title="Alto Contraste"
-            imgSrc="/imagens/icones/acessibilidade.png"
+            imgSrc={acessibilidadeIcon}
             alt="Acessibilidade"
             onClick={() => alert("Contraste ativado")}
           />
-                    <IconCard
+          <IconCard
             title="Pesquisa de satisfação"
-            imgSrc="/imagens/icones/feedback.png"
+            imgSrc={feedbackIcon}
             alt="Acessibilidade"
             link="/feedback"
           />
         </section>
-       
+
         <aside> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
           <h1>Veja aqui seus agendamentos marcados!</h1>
           <div> {/* CARDS DE AGENDAMENTOS */}
             <AgendaCard agendamento="Exame de rotina" data="20/10" horario="10:10h"
             detalhes="Exame de rotina com Dra. Beatrici - Rua Exemplar Souza, 204, São Paulo - SP" />
- 
+
             <AgendaCard agendamento="Colonoscopia" data="03/11" horario="17:00h"
             detalhes="Colonoscopia com Dr. Hayashi - Rua Exemplar Souza, 204, São Paulo - SP" />
- 
+
             <AgendaCard agendamento="Endoscopia" data="25/11" horario="14:00h"
             detalhes="Endoscopia com Dr. Henrique - Rua Exemplar Souza, 204, São Paulo - SP" />
- 
+
             <AgendaCard agendamento="Hemograma" data="16/12" horario="08:30h"
             detalhes="Hemograma com Dr. Aurélio - Rua Exemplar Souza, 204, São Paulo - SP" />
           </div>
@@ -82,5 +91,5 @@ const Home = () => {
     </main>
   )
 }
- 
+
 export default Home

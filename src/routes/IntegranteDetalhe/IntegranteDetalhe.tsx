@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { integrantes } from "../../data/integrantes";
 import VoltarButton from "../../components/VoltarButton";
+import imgGitHub from "/src/assets/icones/github.svg";
+import imgLinkedIn from "/src/assets/icones/linkedin.svg"
 
 const IntegranteDetalhe = () => {
 const { rm } = useParams();
@@ -29,11 +31,11 @@ window.open(url, "_blank", "noopener,noreferrer");
         </div>
         <div>
           <button onClick={() => abrirLink(integrante.git)}>
-          <img src="/src/assets/icones/github.svg" alt="GitHub" width={20} height={20} />GitHub
+          <img src={imgGitHub} alt="GitHub" width={20} height={20} />GitHub
           </button>
-          
+
           <button onClick={() => abrirLink(integrante.linkedIn)}>
-          <img src="/src/assets/icones/linkedin.svg" alt="LinkedIn" width={20} height={20} />LinkedIn
+          <img src={imgLinkedIn} alt="LinkedIn" width={20} height={20} />LinkedIn
           </button>
 
           <p>São Paulo - Brasil</p>
