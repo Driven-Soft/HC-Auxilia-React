@@ -13,6 +13,7 @@ import Integrantes from "./routes/Integrantes/Integrantes.tsx";
 import Root from "./routes/Root/root.tsx";
 import ErrorPage from "./routes/ErrorPage/ErrorPage.tsx";
 import Sobre from "./routes/Sobre/Sobre.tsx";
+import IntegranteDetalhe from "./routes/IntegranteDetalhe/IntegranteDetalhe.tsx";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
       { path: "faq", element: <Faq /> },
       { path: "feedback", element: <Feedback /> },
       { path: "integrantes", element: <Integrantes /> },
-      { path: "sobre", element: <Sobre />}
+      { path: "sobre", element: <Sobre />},
+      { path: "integrante/:rm", element: <IntegranteDetalhe /> }
     ],
   },
 ]);

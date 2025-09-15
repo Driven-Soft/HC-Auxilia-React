@@ -1,30 +1,32 @@
+import { Link } from "react-router-dom";
+import type { Integrante } from "../data/integrantes";
+
 interface IntegranteCardProps {
-  nomeIntegrante: string;
-  rmIntegrante: string;
-  imgIntegrante: string;
-  gitIntegrante: string;
-  linkedIntegrante: string;
+  integrante: Integrante
 }
 
-const IntegranteCard = ({nomeIntegrante,rmIntegrante,imgIntegrante,gitIntegrante,linkedIntegrante,}: IntegranteCardProps) => {
+const IntegranteCard = ({integrante}: IntegranteCardProps) => {
   return (
     <div>
-      <img src={imgIntegrante} alt={`Imagem do integrante ${nomeIntegrante}`} />
+      <img src={integrante.img} alt={`Imagem do integrante ${integrante.nome}`} />
       <div>
-        <p><b>Aluno: </b>{nomeIntegrante}</p>
+        <p><b>Aluno: </b>{integrante.nome}</p>
         <p><b>Turma: </b>1TDSPK</p>
-        <p><b>RM: </b>{rmIntegrante}</p>
+        <p><b>RM: </b>{integrante.rm}</p>
         <br />
 
         <p>
           <b>Perfil do Github: </b>
-          <a href={gitIntegrante} target="_blank" rel="noopener noreferrer">{gitIntegrante}</a>
+          <a href={integrante.git} target="_blank" rel="noopener noreferrer">{integrante.git}</a>
         </p>
 
         <p>
           <b>Perfil do LinkedIn: </b>
-          <a href={linkedIntegrante} target="_blank" rel="noopener noreferrer">{linkedIntegrante}</a>
+          <a href={integrante.linkedIn} target="_blank" rel="noopener noreferrer">{integrante.linkedIn}</a>
         </p>
+        
+        <Link to={`/integrante/${integrante.rm}`}>Ver mais detalhes</Link>
+
       </div>
     </div>
   )
