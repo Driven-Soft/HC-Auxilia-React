@@ -3,7 +3,7 @@ import VoltarButton from "../../components/VoltarButton"
 const Contato = () => {
   return (
     <section>
-        <h3>Contato:</h3>
+        <h2>Contato:</h2>
         <div>
             <h4>Hospital das Clínicas da Faculdade de Medicina da Universidade de São Paulo</h4>
             <h5>Endereço:</h5>

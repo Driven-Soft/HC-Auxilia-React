@@ -3,7 +3,7 @@ import VoltarButton from "../../components/VoltarButton"
 const Cuidador = () => {
   return (
     <section>
-      <h3>Área do cuidador: </h3>
+      <h2>Área do cuidador: </h2>
       <VoltarButton />
     </section>
   )

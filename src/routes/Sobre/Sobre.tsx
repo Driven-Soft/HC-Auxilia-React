@@ -3,7 +3,7 @@ import VoltarButton from "../../components/VoltarButton"
 const Sobre = () => {
   return (
     <section>
-        <h3>Sobre o HC Auxilia:</h3>
+        <h2>Sobre o HC Auxilia:</h2>
         <div>
             <p>O HC Auxilia é uma solução desenvolvida para reduzir as barreiras digitais no acesso ao Portal do Paciente do Hospital das Clínicas.</p>
             <p>Seu objetivo é apoiar pacientes, cuidadores e familiares em toda a jornada de saúde, tornando o acompanhamento mais simples, acessível e intuitivo.</p>

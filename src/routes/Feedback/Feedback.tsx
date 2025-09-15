@@ -3,7 +3,7 @@ import VoltarButton from "../../components/VoltarButton"
 const Feedback = () => {
   return (
     <section>
-      <h3>Pesquisa de satisfação: </h3>
+      <h2>Pesquisa de satisfação: </h2>
       <VoltarButton />
     </section>
   )
