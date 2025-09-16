@@ -2,7 +2,6 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import Home from "./routes/Home/Home.tsx";
 import Contato from "./routes/Contato/Contato.tsx";
 import Faq from "./routes/Faq/Faq.tsx";
