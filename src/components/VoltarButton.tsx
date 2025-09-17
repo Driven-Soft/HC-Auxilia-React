@@ -15,11 +15,13 @@ const VoltarButton = () => {
     <div className="flex justify-center py-4">
       <button
         onClick={handleClick}
-        className="bg-[#3F58FF] text-white font-semibold px-6 py-3 rounded-md
-                   text-center
-                   transition-all duration-300 ease-in-out
-                   hover:bg-[#0022ff] hover:scale-105"
-      >
+        className="
+          bg-gradient-to-r from-[#3F58FF] to-[#0022FF]
+          text-white font-semibold px-6 py-3 rounded-md
+          text-center
+          transition-all duration-200 ease-in-out
+          hover:brightness-120 hover:scale-110
+        ">
         Voltar
       </button>
     </div>

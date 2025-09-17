@@ -12,7 +12,7 @@ import feedbackIcon from "../../assets/icones/feedback.png";
 
 const Home = () => {
   return (
-    <main className="w-full pt-5 pb-5 bg-white ">
+    <main className="w-full pt-2 pb-5 lg:pt-4 bg-white ">
       <section className="flex flex-col md:flex-row w-full h-full shadow-[0_-9px_10px_rgba(0,0,0,0.05),0_9px_10px_rgba(0,0,0,0.05)]"> {/*SEÇÃO  DO MAIN GERAL*/}
         <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center bg-[#D9D9D9] p-4"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
           <IconCard
