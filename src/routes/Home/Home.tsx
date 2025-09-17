@@ -1,4 +1,4 @@
-import AgendaCard from "../../components/AgendaCard"
+import OpenCard from "../../components/OpenCard"
 import IconCard from "../../components/IconCard"
 import assistenteIcon from "../../assets/icones/assistente.png";
 import cuidadoresIcon from "../../assets/icones/cuidadores.png";
@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <main className="w-full pt-2 pb-5 lg:pt-4 bg-white ">
       <section className="flex flex-col md:flex-row w-full h-full shadow-[0_-9px_10px_rgba(0,0,0,0.05),0_9px_10px_rgba(0,0,0,0.05)]"> {/*SEÇÃO  DO MAIN GERAL*/}
-        <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center bg-[#D9D9D9] p-4"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
+        <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center bg-[#D9D9D9] px-2 py-4 lg:px-7"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
           <IconCard
             title="Assistente Virtual"
             imgSrc={assistenteIcon}
@@ -74,16 +74,16 @@ const Home = () => {
         <aside className="flex-1 p-4 mt-4 md:mt-0 bg-[#D9D9D9]"> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
           <h1 className="text-4xl text-[#4A4A4A] font-bold mb-4 not-first:">Veja aqui seus agendamentos marcados!</h1>
           <div className="space-y-4"> {/* CARDS DE AGENDAMENTOS */}
-            <AgendaCard agendamento="Exame de rotina" data="20/10" horario="10:10h"
+            <OpenCard titulo="Exame de rotina" data="20/10" horario="10:10h"
             detalhes="Exame de rotina com Dra. Beatrici - Rua Exemplar Souza, 204, São Paulo - SP" />
 
-            <AgendaCard agendamento="Colonoscopia" data="03/11" horario="17:00h"
+            <OpenCard titulo="Colonoscopia" data="03/11" horario="17:00h"
             detalhes="Colonoscopia com Dr. Hayashi - Rua Exemplar Souza, 204, São Paulo - SP" />
 
-            <AgendaCard agendamento="Endoscopia" data="25/11" horario="14:00h"
+            <OpenCard titulo="Endoscopia" data="25/11" horario="14:00h"
             detalhes="Endoscopia com Dr. Henrique - Rua Exemplar Souza, 204, São Paulo - SP" />
 
-            <AgendaCard agendamento="Hemograma" data="16/12" horario="08:30h"
+            <OpenCard titulo="Hemograma" data="16/12" horario="08:30h"
             detalhes="Hemograma com Dr. Aurélio - Rua Exemplar Souza, 204, São Paulo - SP" />
           </div>
         </aside>
