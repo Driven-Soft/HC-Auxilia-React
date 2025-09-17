@@ -9,14 +9,7 @@ interface IconCardProps {
   onClick?: () => void;
 }
 
-const IconCard = ({
-  title,
-  imgSrc,
-  alt,
-  link,
-  href,
-  onClick,
-}: IconCardProps) => {
+const IconCard = ({title,imgSrc,alt,link,href,onClick,}: IconCardProps) => {
   const content = (
     <div className="flex flex-col items-center justify-center w-full h-full p-2">
       <img
@@ -31,28 +24,18 @@ const IconCard = ({
   );
 
   return (
-    <article className="bg-[#F5F5FE] rounded-md shadow-lg w-full h-full flex">
+    <article
+      className="bg-[#F5F5FE] rounded-md shadow-xl w-full h-full flex transition-all duration-100 ease-in-out hover:scale-98 hover:bg-[#ececec]">
       {link ? (
-        <Link
-          to={link}
-          className="flex-1 flex items-center justify-center w-full h-full"
-        >
+        <Link to={link} className="flex-1 flex items-center justify-center w-full h-full">
           {content}
         </Link>
       ) : href ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center w-full h-full"
-        >
+        <a href={href} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center w-full h-full" >
           {content}
         </a>
       ) : (
-        <span
-          onClick={onClick}
-          className="flex-1 flex items-center justify-center w-full h-full cursor-pointer"
-        >
+        <span onClick={onClick} className="flex-1 flex items-center justify-center w-full h-full cursor-pointer">
           {content}
         </span>
       )}
