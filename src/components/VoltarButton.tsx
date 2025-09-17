@@ -12,7 +12,7 @@ const VoltarButton = () => {
   };
  
   return (
-    <div className="flex justify-center py-4">
+    <div className="flex justify-center pb-4">
       <button
         onClick={handleClick}
         className="

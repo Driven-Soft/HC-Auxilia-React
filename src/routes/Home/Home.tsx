@@ -9,12 +9,13 @@ import receitasIcon from "../../assets/icones/receitas.png";
 import perfilIcon from "../../assets/icones/perfil.png";
 import acessibilidadeIcon from "../../assets/icones/acessibilidade.png";
 import feedbackIcon from "../../assets/icones/feedback.png";
+import Wrapper from "../../components/Wrapper";
 
 const Home = () => {
   return (
-    <main className="w-full pt-2 pb-5 lg:pt-4 bg-white ">
-      <section className="flex flex-col md:flex-row w-full h-full shadow-[0_-9px_10px_rgba(0,0,0,0.05),0_9px_10px_rgba(0,0,0,0.05)]"> {/*SEÇÃO  DO MAIN GERAL*/}
-        <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center bg-[#D9D9D9] px-2 py-4 lg:px-7"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
+    <main>
+      <Wrapper className="flex-col md:flex-row"> {/*SEÇÃO  DO MAIN GERAL*/}
+        <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center px-2 py-4 lg:px-7"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
           <IconCard
             title="Assistente Virtual"
             imgSrc={assistenteIcon}
@@ -71,7 +72,7 @@ const Home = () => {
           />
         </section>
 
-        <aside className="flex-1 p-4 mt-4 md:mt-0 bg-[#D9D9D9]"> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
+        <aside className="flex-1 p-4 mt-4 md:mt-0"> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
           <h1 className="text-4xl text-[#4A4A4A] font-bold mb-4 not-first:">Veja aqui seus agendamentos marcados!</h1>
           <div className="space-y-4"> {/* CARDS DE AGENDAMENTOS */}
             <OpenCard titulo="Exame de rotina" data="20/10" horario="10:10h"
@@ -87,7 +88,7 @@ const Home = () => {
             detalhes="Hemograma com Dr. Aurélio - Rua Exemplar Souza, 204, São Paulo - SP" />
           </div>
         </aside>
-      </section>
+      </Wrapper>
     </main>
   )
 }
