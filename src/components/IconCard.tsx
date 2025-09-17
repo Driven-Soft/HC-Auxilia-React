@@ -4,27 +4,57 @@ interface IconCardProps {
   title: string;
   imgSrc: string;
   alt: string;
-  link?: string;         // rota interna
-  href?: string;         // link externo
-  onClick?: () => void;  // ação de clique
+  link?: string;
+  href?: string;
+  onClick?: () => void;
 }
 
-const IconCard = ({ title, imgSrc, alt, link, href, onClick }: IconCardProps) => {
+const IconCard = ({
+  title,
+  imgSrc,
+  alt,
+  link,
+  href,
+  onClick,
+}: IconCardProps) => {
   const content = (
-    <>
-      <img src={imgSrc} alt={alt} className="w-12 h-12 mb-2"/>
-      <div>{title}</div>
-    </>
+    <div className="flex flex-col items-center justify-center w-full h-full p-2">
+      <img
+        src={imgSrc}
+        alt={alt}
+        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 aspect-square object-contain "
+      />
+      <div className="text-black font-medium text-center text-sm sm:text-base md:text-lg">
+        {title}
+      </div>
+    </div>
   );
 
   return (
-    <article>
+    <article className="bg-[#F5F5FE] rounded-md shadow-lg w-full h-full flex">
       {link ? (
-        <Link to={link}>{content}</Link>
+        <Link
+          to={link}
+          className="flex-1 flex items-center justify-center w-full h-full"
+        >
+          {content}
+        </Link>
       ) : href ? (
-        <a href={href} target="_blank" rel="noopener noreferrer">{content}</a>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 flex items-center justify-center w-full h-full"
+        >
+          {content}
+        </a>
       ) : (
-        <span onClick={onClick} className="cursor-pointer">{content}</span>
+        <span
+          onClick={onClick}
+          className="flex-1 flex items-center justify-center w-full h-full cursor-pointer"
+        >
+          {content}
+        </span>
       )}
     </article>
   );

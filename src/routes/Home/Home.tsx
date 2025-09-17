@@ -12,9 +12,9 @@ import feedbackIcon from "../../assets/icones/feedback.png";
 
 const Home = () => {
   return (
-    <main>
-      <section> {/*SEÇÃO  DO MAIN GERAL*/}
-        <section> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
+    <main className="w-screen pt-5 pb-5 bg-white">
+      <section className="flex flex-col md:flex-row w-full h-full shadow-lg"> {/*SEÇÃO  DO MAIN GERAL*/}
+        <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center bg-[#D9D9D9] p-4"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
           <IconCard
             title="Assistente Virtual"
             imgSrc={assistenteIcon}
@@ -71,9 +71,9 @@ const Home = () => {
           />
         </section>
 
-        <aside> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
-          <h1>Veja aqui seus agendamentos marcados!</h1>
-          <div> {/* CARDS DE AGENDAMENTOS */}
+        <aside className="flex-1 p-4 mt-4 md:mt-0 bg-[#D9D9D9]"> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
+          <h1 className="text-4xl text-[#4A4A4A] font-bold mb-4 not-first:">Veja aqui seus agendamentos marcados!</h1>
+          <div className="space-y-4"> {/* CARDS DE AGENDAMENTOS */}
             <AgendaCard agendamento="Exame de rotina" data="20/10" horario="10:10h"
             detalhes="Exame de rotina com Dra. Beatrici - Rua Exemplar Souza, 204, São Paulo - SP" />
 
