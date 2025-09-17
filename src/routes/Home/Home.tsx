@@ -10,12 +10,6 @@ import perfilIcon from "../../assets/icones/perfil.png";
 import acessibilidadeIcon from "../../assets/icones/acessibilidade.png";
 import feedbackIcon from "../../assets/icones/feedback.png";
 
-declare global {
-  interface Window {
-    toggleWatsonChat?: () => void;
-  }
-}
-
 const Home = () => {
   return (
     <main className="w-full pt-5 pb-5 bg-white ">

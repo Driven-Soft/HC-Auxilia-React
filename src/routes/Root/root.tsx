@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import ChatWatson from "../../components/ChatWatson";
 
 const Root = () => {
   return (
@@ -10,6 +11,7 @@ const Root = () => {
       <div id="details">
         <Outlet />
       </div>
+      <ChatWatson /> 
       <Footer />
     </>
   );
