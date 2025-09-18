@@ -15,9 +15,9 @@ import VoltarButton from "../../components/VoltarButton";
 const Cuidador = () => {
   return (
     <main>
-      <InfoDiv className="flex items-center pt-2 md:pt-3 px-4 mt-4">
+      <InfoDiv className="flex items-center pt-2 md:pt-3 px-4 mt-4 justify-center">
         <img src="/src/assets/icones/cuidadores.png" alt="" className="w-10 h-10 sm:w-10 sm:h-10 md:w-15 md:h-15 list-none flex justify-center items-center" />
-        <h1 className="text-2xl md:text-4xl text-[#4A4A4A] font-bold not-first:">Área do Cuidador</h1>
+        <h1 className="p-1 sm:p-4 text-2xl md:text-4xl text-[#4A4A4A] font-bold">Área do Cuidador</h1>
       </InfoDiv>
       <Wrapper className="flex-col md:flex-row"> {/*SEÇÃO  DO MAIN GERAL*/}
         <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center px-2 py-4 lg:px-7"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}

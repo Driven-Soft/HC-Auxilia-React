@@ -20,7 +20,7 @@ const ItensHeader = ({ icone, titulo, to, href }: ItensHeaderProps) => {
   );
 
   return (
-    <li className="bg-[#f5f5fe] rounded-lg shadow-md hover:bg-[#e0e0f0] transition 
+    <li className="bg-[#f9f9fd] rounded-lg shadow-md hover:bg-[#e0e0f0] transition 
                    w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 list-none flex justify-center items-center">
       {to ? (
         <Link to={to} className="flex w-full h-full justify-center items-center">
