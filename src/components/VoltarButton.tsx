@@ -14,7 +14,7 @@ const VoltarButton = () => {
   };
  
   return (
-    <ButtonWrapper aoClick={handleClick}>
+    <ButtonWrapper onClick={handleClick}>
       Voltar
     </ButtonWrapper>
   );

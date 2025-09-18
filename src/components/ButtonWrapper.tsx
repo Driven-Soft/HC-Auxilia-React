@@ -5,18 +5,18 @@ interface WrapperProps {
   children: ReactNode
   className?: string
   to?: string
-  aoClick?: () => void
+  onClick?: () => void
 }
  
-const ButtonWrapper = ({ aoClick, children, className = "", to }: WrapperProps) => {
+const ButtonWrapper = ({ onClick, children, className = "", to }: WrapperProps) => {
   const navigate = useNavigate()
  
   const handleClick = () => {
     if (to) {
       navigate(to)
     }
-    if (aoClick) {
-      aoClick()
+    if (onClick) {
+      onClick()
     }
   }
  
