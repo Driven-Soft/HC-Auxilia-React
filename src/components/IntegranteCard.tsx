@@ -32,4 +32,4 @@ const IntegranteCard = ({integrante}: IntegranteCardProps) => {
   )
 }
 
-export default IntegranteCard
+export default IntegranteCard;
