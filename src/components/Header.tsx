@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import HCAuxiliaLogo from "../assets/icones/HCAuxiliaLogo.png";
 import homeIcon from "../assets/icones/home.png";
 import sobreIcon from "../assets/icones/sobre.png";
@@ -12,7 +12,12 @@ import ItensHeader from "./ItensHeader";
 import ItemHeaderMobile from "./ItemHeaderMobile";
 
 const Header = () => {
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <header className="flex items-center bg-gradient-to-r from-[#3F58FF] to-[#00BBD3] px-3 py-2 gap-2 shadow-header top-0 z-40 min-h-[34px] sm:px-4 sm:gap-3 md:gap-4 lg:px-6">
@@ -76,28 +81,49 @@ const Header = () => {
           />
         </button>
 
-        {/* Menu mobile dropdown */}
+        {/* Side menu estilo slide */}
+      <div
+        className={`fixed top-0 right-0 h-full bg-gradient-to-r from-[#3fa2ff] to-[#007fe7] shadow-lg z-50 
+          transition-all duration-500 ease-in-out
+          ${mobileMenuOpen ? "w-64" : "w-0"}`}
+      >
+        {/* Botão de fechar — só aparece quando o menu está aberto */}
         {mobileMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <div
-              className="fixed inset-0 bg-black/20 z-40"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            {/* Itens do dropdown */}
-            <ul className="absolute right-0 mt-2 bg-white rounded-lg shadow-md w-48 z-50 list-none">
-              <ItemHeaderMobile icone={sobreIcon} titulo="Sobre" to="/sobre" />
-              <ItemHeaderMobile icone={contatoIcon} titulo="Contato" to="/contato" />
-              <ItemHeaderMobile
-                icone={manuaisIcon}
-                titulo="Manuais"
-                href="https://portaldopaciente.hc.fm.usp.br/manuais-portal"
-              />
-              <ItemHeaderMobile icone={integrantesIcon} titulo="Integrantes" to="/integrantes" />
-            </ul>
-          </>
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="absolute top-4 right-4 text-white text-2xl px-3 py-1 bg-[#009ee7] rounded-full"
+          >
+            ✕
+          </button>
         )}
+
+        {/* Conteúdo do menu */}
+        <ul
+          className={`flex flex-col gap-4 px-6 pt-18 overflow-hidden 
+            ${mobileMenuOpen ? "opacity-100" : "opacity-0"} 
+            transition-opacity duration-300 delay-200`}
+        >
+          <ItemHeaderMobile titulo="Sobre" to="/sobre" />
+          <hr className="border-[#85c5e2]" />
+          <ItemHeaderMobile titulo="Contato" to="/contato"/>
+          <hr className="border-[#85c5e2]" />
+          <ItemHeaderMobile
+            titulo="Manuais"
+            href="https://portaldopaciente.hc.fm.usp.br/manuais-portal"
+          />
+          <hr className="border-[#85c5e2]" />
+          <ItemHeaderMobile titulo="Integrantes" to="/integrantes" />
+        </ul>
       </div>
+
+      {/* Backdrop */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-/40 z-40"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+    </div>
     </header>
   );
 };

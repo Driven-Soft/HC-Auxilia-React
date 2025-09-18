@@ -8,7 +8,6 @@ import Faq from "./routes/Faq/Faq.tsx";
 import Cuidador from "./routes/Cuidador/Cuidador.tsx";
 import Feedback from "./routes/Feedback/Feedback.tsx";
 import Integrantes from "./routes/Integrantes/Integrantes.tsx";
-
 import Root from "./routes/Root/root.tsx";
 import ErrorPage from "./routes/ErrorPage/ErrorPage.tsx";
 import Sobre from "./routes/Sobre/Sobre.tsx";

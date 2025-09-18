@@ -7,7 +7,7 @@ interface InfoDivProps {
 
 const InfoDiv = ({ children, className = "" }: InfoDivProps) => {
   return (
-    <div className={`bg-[#FFFFFF] p-4 mb-4 mx-3 rounded-xl lg:mx-10 shadow-lg ${className}`}>
+    <div className={`bg-[#FFFFFF] p-4 mb-4 mx-3 rounded-xl lg:mx-10 shadow-[2px_5px_10px_rgba(0,0,0,0.3)] ${className}`}>
       {children}
     </div>
   );

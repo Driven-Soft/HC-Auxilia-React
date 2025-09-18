@@ -19,11 +19,11 @@ const OpenCard = ({ titulo, data, horario, detalhes, className }: OpenCardProps)
   return (
     <div
       onClick={toggleDetalhes}
-      className={`cursor-pointer shadow-2xl ${className || ""}`} // <- aplica estilos extras vindos do pai
+      className={`cursor-pointer shadow-xl ${className || ""}`} // <- aplica estilos extras vindos do pai
     >
       <div
         className={`bg-[#FFFFFF] flex justify-between items-center px-4 py-2 transition-colors duration-100 ease-in-out hover:bg-[#f5f5f5]
-        ${mostrarDetalhes ? "rounded-t-sm" : "rounded-sm"}`}
+        ${mostrarDetalhes ? "rounded-t-lg" : "rounded-lg"}`}
       >
         <p className="text-[#505050] text-md font-medium">
           <strong className="font-bold">{titulo}</strong> {data} {horario}

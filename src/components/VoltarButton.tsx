@@ -12,7 +12,7 @@ const VoltarButton = () => {
   };
  
   return (
-    <div className="flex justify-center pb-4">
+    <div className="flex justify-center pb-4 ">
       <button
         onClick={handleClick}
         className="
@@ -21,6 +21,7 @@ const VoltarButton = () => {
           text-center
           transition-all duration-200 ease-in-out
           hover:brightness-120 hover:scale-110
+          shadow-[0_6px_25px_rgba(0,0,0,0.45)]
         ">
         Voltar
       </button>
