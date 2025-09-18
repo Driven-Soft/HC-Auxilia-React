@@ -9,7 +9,7 @@ interface ItensHeaderProps {
 
 const ItensHeader = ({ icone, titulo, to, href }: ItensHeaderProps) => {
   const content = (
-    <div className="flex flex-col items-center text-center text-gray-800 font-bold justify-center w-full h-full">
+    <div className="flex flex-col items-center text-center text-gray-900 font-bold justify-center w-full h-full">
       <img
         src={icone}
         alt={titulo}
@@ -20,8 +20,15 @@ const ItensHeader = ({ icone, titulo, to, href }: ItensHeaderProps) => {
   );
 
   return (
-    <li className="bg-[#f9f9fd] rounded-lg shadow-md hover:bg-[#e0e0f0] transition 
-                   w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 list-none flex justify-center items-center">
+    <li className="
+        bg-gradient-to-r from-[#fcfcff] to-[#f0f0f0]
+      hover:from-[#f3f3f3] hover:to-[#ececec]
+        rounded-lg shadow-[0_2px_5px_rgba(0,0,0,0.3)] 
+        hover:scale-105 
+        transition-transform duration-200 
+        w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 
+        list-none flex justify-center items-center
+      ">
       {to ? (
         <Link to={to} className="flex w-full h-full justify-center items-center">
           {content}

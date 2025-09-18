@@ -25,7 +25,14 @@ const IconCard = ({title,imgSrc,alt,link,href,onClick,}: IconCardProps) => {
 
   return (
     <article
-      className="bg-[#f9f9fd] rounded-md shadow-[0_2px_5px_rgba(0,0,0,0.3)] w-full h-full flex transition-all duration-100 ease-in-out hover:scale-98 hover:bg-[#ececec]">
+      className="
+        bg-gradient-to-br from-[#ffffff] to-[#f1f1f1] 
+        hover:from-[#eeeeee] hover:to-[#e9e9e9]
+        rounded-md shadow-[0_2px_5px_rgba(0,0,0,0.3)] 
+        w-full h-full flex 
+        transition-all duration-100 ease-in-out 
+        hover:scale-98
+      ">
       {link ? (
         <Link to={link} className="flex-1 flex items-center justify-center w-full h-full">
           {content}
