@@ -26,7 +26,7 @@ const ItensHeader = ({ icone, titulo, to, href }: ItensHeaderProps) => {
         rounded-lg shadow-[0_2px_5px_rgba(0,0,0,0.3)] 
         hover:scale-105 
         transition-transform duration-200 
-        w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 
+        w-16 h-16 sm:w-20 sm:h-20 md:w-26 md:h-25
         list-none flex justify-center items-center
       ">
       {to ? (

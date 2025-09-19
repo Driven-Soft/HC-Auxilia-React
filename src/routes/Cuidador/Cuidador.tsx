@@ -7,7 +7,6 @@ import receitasIcon from "../../assets/icones/receitas.png";
 import perfilIcon from "../../assets/icones/perfil.png";
 import feedbackIcon from "../../assets/icones/feedback.png";
 import teleconsulta from "../../assets/icones/hospital.png";
-import ficha from "../../assets/icones/ficha.png";
 import Wrapper from "../../components/Wrapper";
 import InfoDiv from "../../components/InfoDiv";
 import VoltarButton from "../../components/VoltarButton";
@@ -22,16 +21,10 @@ const Cuidador = () => {
       <Wrapper className="flex-col md:flex-row"> {/*SEÇÃO  DO MAIN GERAL*/}
         <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center px-2 py-4 lg:px-7"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
           <IconCard
-            title="Marcar Teleconsulta"
+            title="Acessar Teleconsulta"
             imgSrc={teleconsulta}
             alt="Teleconsultas"
             href="https://portaldopaciente.hc.fm.usp.br/teleconsulta"
-          />
-          <IconCard
-            title="Cadastrar Ficha"
-            imgSrc={ficha}
-            alt="Consultas"
-            href="https://portaldopaciente.hc.fm.usp.br/meus-dados"
           />
           <IconCard
             title="Perfil do Paciente"

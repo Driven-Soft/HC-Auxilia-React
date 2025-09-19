@@ -6,6 +6,7 @@ interface WrapperProps {
   className?: string
   to?: string
   onClick?: () => void
+  type?: string
 }
  
 const ButtonWrapper = ({ onClick, children, className = "", to }: WrapperProps) => {
