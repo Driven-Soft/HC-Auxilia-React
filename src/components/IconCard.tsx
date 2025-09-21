@@ -15,9 +15,9 @@ const IconCard = ({title,imgSrc,alt,link,href,onClick,}: IconCardProps) => {
       <img
         src={imgSrc}
         alt={alt}
-        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 aspect-square object-contain "
+        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 aspect-square object-contain dark:invert "
       />
-      <div className="text-black font-medium text-center text-sm sm:text-base md:text-lg">
+      <div className="text-black dark:text-yellow-300 font-medium text-center text-sm sm:text-base md:text-lg">
         {title}
       </div>
     </div>
@@ -32,6 +32,9 @@ const IconCard = ({title,imgSrc,alt,link,href,onClick,}: IconCardProps) => {
         w-full h-full flex 
         transition-all duration-100 ease-in-out 
         hover:scale-98
+        dark:bg-black dark:from-black dark:to-black
+        dark:hover:from-[#000000] dark:hover:to-[#000000]
+        dark:border-2 dark:border-white
       ">
       {link ? (
         <Link to={link} className="flex-1 flex items-center justify-center w-full h-full">

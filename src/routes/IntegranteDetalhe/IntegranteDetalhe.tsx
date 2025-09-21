@@ -19,8 +19,8 @@ window.open(url, "_blank", "noopener,noreferrer");
 
   return (
     <section>
-      <section className="bg-gradient-hero my-6 bg-background bg-gradient-to-b from-[#007fe7] to-[#3ea2ff] py-4 sm:py-10 shadow-[0_2px_5px_rgba(0,0,0,0.3)]">
-        <div className="container mx-auto px-4 sm:px-6 text-center text-[#f8f8f8]">
+      <section className="bg-gradient-hero my-6 bg-background bg-gradient-to-b from-[#007fe7] to-[#3ea2ff] py-4 sm:py-10 shadow-[0_2px_5px_rgba(0,0,0,0.3)] dark:bg-[#0a0a0a] dark:from-[#0a0a0a] dark:to-[#0a0a0a] dark:border-white dark:border-2">
+        <div className="container mx-auto px-4 sm:px-6 text-center text-[#f8f8f8] dark:text-yellow-300">
           <div className="max-w-3xl mx-auto">
             <img
             className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white/20 shadow-elegant"
@@ -35,14 +35,14 @@ window.open(url, "_blank", "noopener,noreferrer");
 
       <Wrapper className="flex-col sm:flex-row">
         <InfoDiv className="flex-1 mt-4 text-center">
-          <h2 className="mt-5 text-xl font-bold text-[#313131]">Sobre Mim</h2>
-          <p className="my-5 text-lg lg:text-xl text-[#313131] font-medium text-center sm:text-left"
+          <h2 className="mt-5 text-xl font-bold text-[#313131] dark:text-yellow-300">Sobre Mim</h2>
+          <p className="my-5 text-lg lg:text-xl text-[#313131] dark:text-yellow-300 font-medium text-center sm:text-left"
           >{integrante.descricao}</p>
         </InfoDiv>
         
         <InfoDiv className="flex flex-col flex-1 justify-center mt-4">  
-          <div className="my-5 text-lg lg:text-xl font-medium text-center text-[#313131]">
-            <h2 className="mb-7 text-lg lg:text-xl font-medium text-[#313131]">Interessado em colaborar ou discutir projetos? Entre em contato:</h2>
+          <div className="my-5 text-lg lg:text-xl font-medium text-center text-[#313131] dark:text-yellow-300">
+            <h2 className="mb-7 text-lg lg:text-xl font-medium text-[#313131] dark:text-yellow-300">Interessado em colaborar ou discutir projetos? Entre em contato:</h2>
             <p>São Paulo - Brasil</p>
             <p>Contato: <a
             href={`mailto:${integrante.email}`} target="_blank" rel="noopener noreferrer"

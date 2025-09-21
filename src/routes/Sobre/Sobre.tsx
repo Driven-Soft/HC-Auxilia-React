@@ -10,7 +10,7 @@ const Sobre = () => {
     <Wrapper className="flex-col">
       <section className="w-full h-full"> {/*SEÇÃO  DO MAIN GERAL*/}
         <InfoDiv className="flex items-center pt-2 md:pt-3 px-4 mt-4 justify-center">
-          <h2 className="p-1 sm:p-4 text-2xl md:text-4xl text-[#4A4A4A] font-bold">
+          <h2 className="p-1 sm:p-4 text-2xl md:text-4xl text-[#4A4A4A] dark:text-yellow-300 font-bold">
             Sobre o HC Auxilia
           </h2>
         </InfoDiv>

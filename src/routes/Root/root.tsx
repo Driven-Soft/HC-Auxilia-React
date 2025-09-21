@@ -5,7 +5,7 @@ import ChatWatson from "../../components/ChatWatson";
 
 const Root = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen dark:bg-black">
       <Header />
       {/* TUDO DENTRO DO DIV DETAILS É REDIRECIONAMENTO (OUTRAS PAGINAS) */}
       <div id="details" className="flex-1">

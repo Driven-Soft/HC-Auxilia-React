@@ -10,6 +10,7 @@ import perfilIcon from "../../assets/icones/perfil.png";
 import acessibilidadeIcon from "../../assets/icones/acessibilidade.png";
 import feedbackIcon from "../../assets/icones/feedback.png";
 import Wrapper from "../../components/Wrapper";
+import DarkModeToggle from "../../components/DarkModeToggle";
 
 const Home = () => {
   return (
@@ -58,11 +59,10 @@ const Home = () => {
             alt="Perfil do Paciente"
             href="https://portaldopaciente.hc.fm.usp.br/meus-dados"
           />
-          <IconCard
+          <DarkModeToggle
             title="Alto Contraste"
             imgSrc={acessibilidadeIcon}
             alt="Acessibilidade"
-            onClick={() => alert("Contraste ativado")}
           />
           <IconCard
             title="Pesquisa de satisfação"
@@ -73,7 +73,7 @@ const Home = () => {
         </section>
 
         <aside className="flex-1 p-4 mt-4 md:mt-0"> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
-          <h1 className="text-4xl text-[#4A4A4A] font-bold mb-4 not-first:">Veja aqui seus agendamentos marcados!</h1>
+          <h1 className="text-4xl text-[#4A4A4A] font-bold mb-4 not-first: dark:text-yellow-300">Veja aqui seus agendamentos marcados!</h1>
           <div className="space-y-4"> {/* CARDS DE AGENDAMENTOS */}
             <OpenCard titulo="Exame de rotina" data="20/10" horario="10:10h"
             detalhes="Exame de rotina com Dra. Beatrici - Rua Exemplar Souza, 204, São Paulo - SP" />

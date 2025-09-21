@@ -20,7 +20,7 @@ const Header = () => {
   }, [location.pathname]);
 
   return (
-    <header className="flex items-center bg-gradient-to-r from-[#3F58FF] to-[#00BBD3] px-3 py-2 gap-2 shadow-[0_2px_5px_rgba(0,0,0,0.3)] top-0 z-40 min-h-[34px] sm:px-4 sm:gap-3 md:gap-4 lg:px-6">
+    <header className="dark:bg-black dark:from-black dark:to-black flex items-center bg-gradient-to-r from-[#3F58FF] to-[#00BBD3] px-3 py-2 gap-2 shadow-[0_2px_5px_rgba(0,0,0,0.3)] top-0 z-40 min-h-[34px] sm:px-4 sm:gap-3 md:gap-4 lg:px-6 ">
       {/* Logo */}
       <Link
         to="/"
@@ -75,7 +75,7 @@ const Header = () => {
           aria-label="Menu"
         >
           <img
-            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 dark:invert"
             src={burgerIcon}
             alt="Menu"
           />
@@ -84,6 +84,7 @@ const Header = () => {
         {/* Side menu estilo slide */}
       <div
         className={`fixed top-0 right-0 h-full bg-gradient-to-r from-[#3fa2ff] to-[#007fe7] shadow-lg z-50 
+        dark:bg-black dark:from-black dark:to-black
           transition-all duration-500 ease-in-out
           ${mobileMenuOpen ? "w-64" : "w-0"}`}
       >
@@ -91,7 +92,7 @@ const Header = () => {
         {mobileMenuOpen && (
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="absolute top-4 right-4 text-white text-2xl px-3 py-1 bg-[#009ee7] rounded-full"
+            className="absolute top-4 right-4 text-white text-2xl px-3 py-1 bg-[#009ee7] dark:bg-white rounded-full dark:text-black"
           >
             ✕
           </button>

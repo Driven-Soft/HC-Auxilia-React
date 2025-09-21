@@ -32,6 +32,9 @@ const ButtonWrapper = ({ onClick, children, className = "", to }: WrapperProps) 
           transition-all duration-200 ease-in-out
           hover:brightness-125 hover:scale-110
           shadow-[0_6px_25px_rgba(0,0,0,0.45)]
+        dark:bg-black dark:from-black dark:to-black
+        dark:hover:from-[#000000] dark:hover:to-[#000000]
+          dark:border-4 dark:border-white
           ${className}
         `}
       >

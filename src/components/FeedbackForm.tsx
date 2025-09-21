@@ -22,7 +22,7 @@ export default function FeedbackForm() {
   };
 
   return (
-    <div className="bg-white shadow-[2px_5px_10px_rgba(0,0,0,0.2)] rounded-2xl w-[95%] sm:w-full sm:max-w-lg lg:max-w-[45%] p-8 mt-1 mb-4">
+    <div className="bg-white shadow-[2px_5px_10px_rgba(0,0,0,0.2)] rounded-2xl w-[95%] sm:w-full sm:max-w-lg lg:max-w-[45%] p-8 mt-1 mb-4 dark:bg-black dark:border-2 dark:border-white">
     {/* Se já enviou com sucesso, mostra só a mensagem */}
     {isSubmitSuccessful ? (
         <div className="flex flex-col items-center gap-7 min-h-[90%]">
@@ -33,7 +33,7 @@ export default function FeedbackForm() {
         </div>
     ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <h2 className="text-2xl font-bold text-center text-gray-800">
+            <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-yellow-300">
                 Conte-nos mais!
             </h2>
 
@@ -41,7 +41,7 @@ export default function FeedbackForm() {
             <div>
                 <label
                 htmlFor="name"
-                className="block text-gray-700 font-medium mb-1"
+                className="block text-gray-700 font-medium mb-1 dark:text-yellow-300"
                 >
                 Digite seu nome:
                 </label>
@@ -56,7 +56,7 @@ export default function FeedbackForm() {
                     },
                 })}
                 autoComplete="off"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-yellow-300"
                 />
                 {errors.name && (
                 <p className="text-red-500 text-sm mt-1">
@@ -69,7 +69,7 @@ export default function FeedbackForm() {
             <div>
                 <label
                 htmlFor="email"
-                className="block text-gray-700 font-medium mb-1"
+                className="block text-gray-700 font-medium mb-1 dark:text-yellow-300"
                 >
                 Digite seu e-mail:
                 </label>
@@ -83,7 +83,7 @@ export default function FeedbackForm() {
                     message: "O email precisa ser válido",
                     },
                 })}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-yellow-300"
                 />
                 {errors.email && (
                 <p className="text-red-500 text-sm mt-1">
@@ -94,7 +94,7 @@ export default function FeedbackForm() {
 
             {/* SATISFAÇÃO - NOTA 1 A 10 */}
             <div>
-                <span className="block text-gray-700 font-medium mb-2">
+                <span className="block text-gray-700 font-medium mb-2 dark:text-yellow-300">
                 Qual seu nível de satisfação com o site?
                 </span>
 
@@ -132,7 +132,7 @@ export default function FeedbackForm() {
             <div>
                 <label
                 htmlFor="message"
-                className="block text-gray-700 font-medium mb-1"
+                className="block text-gray-700 font-medium mb-1 dark:text-yellow-300"
                 >
                 Qual sua sugestão?
                 </label>
@@ -143,7 +143,7 @@ export default function FeedbackForm() {
                     required: "A mensagem é obrigatória",
                     minLength: { value: 5, message: "A mensagem deve ser maior!" },
                 })}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none dark:text-yellow-300"
                 />
                 {errors.message && (
                 <p className="text-red-500 text-sm mt-1">
