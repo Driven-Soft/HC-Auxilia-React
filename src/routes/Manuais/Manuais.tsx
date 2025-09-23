@@ -58,11 +58,13 @@ const Manuais = () => {
                 <h2 className="text-md font-bold">Clique no botão que corresponde a sua situação:</h2>
             </InfoText>
             <div className="flex flex-row gap-3 sm:gap-10 justify-center pt-4">
-                <ButtonWrapper to="manuais/comcadastro">
+                <ButtonWrapper to="comcadastro"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <p>Já fiz meu cadastro</p>
                 </ButtonWrapper>
 
-                <ButtonWrapper to="manuais/semcadastro">
+                <ButtonWrapper to="semcadastro"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <p>Não tenho cadastro</p>
                 </ButtonWrapper>
             </div>

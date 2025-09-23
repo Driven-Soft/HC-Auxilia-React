@@ -78,8 +78,8 @@ const Home = () => {
             <OpenCard titulo="Exame de rotina" data="20/10" horario="10:10h"
             detalhes="Exame de rotina com Dra. Beatrici - Rua Exemplar Souza, 204, São Paulo - SP" />
 
-            <OpenCard titulo="Colonoscopia" data="03/11" horario="17:00h"
-            detalhes="Colonoscopia com Dr. Hayashi - Rua Exemplar Souza, 204, São Paulo - SP" />
+            <OpenCard titulo="Teleconsulta" data="03/11" horario="17:00h"
+            detalhes="Teleconsulta com Dr. Hayashi - Seção de Teleconsulta no aplicativo Portal do Paciente HC" />
 
             <OpenCard titulo="Endoscopia" data="25/11" horario="14:00h"
             detalhes="Endoscopia com Dr. Henrique - Rua Exemplar Souza, 204, São Paulo - SP" />

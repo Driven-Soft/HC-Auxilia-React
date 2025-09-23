@@ -29,7 +29,8 @@ const IntegranteCard = ({integrante}: IntegranteCardProps) => {
           className="font-bold text-blue-600 underline"
           >{integrante.linkedIn}</a>
         </p>
-        <ButtonWrapper className="mt-4" to={`/integrante/${integrante.rm}`}>
+        <ButtonWrapper className="mt-4" to={`/integrante/${integrante.rm}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           Ver mais detalhes
         </ButtonWrapper>
       </div>

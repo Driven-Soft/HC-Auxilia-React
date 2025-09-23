@@ -13,6 +13,8 @@ import ErrorPage from "./routes/ErrorPage/ErrorPage.tsx";
 import Sobre from "./routes/Sobre/Sobre.tsx";
 import IntegranteDetalhe from "./routes/IntegranteDetalhe/IntegranteDetalhe.tsx";
 import Manuais from "./routes/Manuais/Manuais.tsx";
+import ComCadastro from "./routes/Manuais/ComCadastro.tsx";
+import SemCadastro from "./routes/Manuais/SemCadastro.tsx";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +30,9 @@ const router = createBrowserRouter([
       { path: "integrantes", element: <Integrantes /> },
       { path: "sobre", element: <Sobre />},
       { path: "integrante/:rm", element: <IntegranteDetalhe /> },
-      { path: "manuais", element: <Manuais />}
+      { path: "manuais", element: <Manuais />},
+      { path: "manuais/comcadastro", element: <ComCadastro /> },
+      { path: "manuais/semcadastro", element: <SemCadastro /> }
     ],
   },
 ]);
