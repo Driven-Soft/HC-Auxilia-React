@@ -44,11 +44,7 @@ const Header = () => {
           <ItensHeader icone={homeIcon} titulo="Início" to="/" />
           <ItensHeader icone={sobreIcon} titulo="Sobre" to="/sobre" />
           <ItensHeader icone={contatoIcon} titulo="Contato" to="/contato" />
-          <ItensHeader
-            icone={manuaisIcon}
-            titulo="Manuais"
-            href="https://portaldopaciente.hc.fm.usp.br/manuais-portal"
-          />
+          <ItensHeader icone={manuaisIcon} titulo="Manuais" to="/manuais" />
           <ItensHeader icone={integrantesIcon} titulo="Integrantes" to="/integrantes" />
         </ul>
       </nav>

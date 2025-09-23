@@ -12,6 +12,7 @@ import Root from "./routes/Root/root.tsx";
 import ErrorPage from "./routes/ErrorPage/ErrorPage.tsx";
 import Sobre from "./routes/Sobre/Sobre.tsx";
 import IntegranteDetalhe from "./routes/IntegranteDetalhe/IntegranteDetalhe.tsx";
+import Manuais from "./routes/Manuais/Manuais.tsx";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
       { path: "feedback", element: <Feedback /> },
       { path: "integrantes", element: <Integrantes /> },
       { path: "sobre", element: <Sobre />},
-      { path: "integrante/:rm", element: <IntegranteDetalhe /> }
+      { path: "integrante/:rm", element: <IntegranteDetalhe /> },
+      { path: "manuais", element: <Manuais />}
     ],
   },
 ]);

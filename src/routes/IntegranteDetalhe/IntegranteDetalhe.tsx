@@ -6,6 +6,7 @@ import imgLinkedIn from "/src/assets/icones/linkedin.svg"
 import Wrapper from "../../components/Wrapper";
 import InfoDiv from "../../components/InfoDiv";
 import ButtonWrapper from "../../components/ButtonWrapper";
+import InfoText from "../../components/InfoText";
 
 const IntegranteDetalhe = () => {
 const { rm } = useParams();
@@ -15,7 +16,14 @@ const abrirLink = (url: string) => {
 window.open(url, "_blank", "noopener,noreferrer");
 };
 
-  if (!integrante) return <h1>Integrante não encontrado</h1>;
+  if (!integrante) return (
+    <Wrapper className="items-center justify-center h-screen">
+     <InfoDiv>
+      <InfoText  texto="Integrante não encontrado"/>
+      <VoltarButton />
+     </InfoDiv>
+    </Wrapper>
+  )
 
   return (
     <section>

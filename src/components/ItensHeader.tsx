@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 interface ItensHeaderProps {
   icone: string;
   titulo: string;
-  to?: string;
-  href?: string;
+  to: string;
 }
 
-const ItensHeader = ({ icone, titulo, to, href }: ItensHeaderProps) => {
+const ItensHeader = ({ icone, titulo, to }: ItensHeaderProps) => {
   const content = (
     <div className="flex flex-col items-center text-center text-gray-900 font-bold justify-center w-full h-full dark:text-yellow-300 dark:border-2 dark:border-white">
       <img
@@ -31,22 +30,9 @@ const ItensHeader = ({ icone, titulo, to, href }: ItensHeaderProps) => {
         dark:bg-black dark:from-black dark:to-black
         dark:hover:from-[#000000] dark:hover:to-[#000000]
       ">
-      {to ? (
-        <Link to={to} className="flex w-full h-full justify-center items-center">
-          {content}
-        </Link>
-      ) : href ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex w-full h-full justify-center items-center"
-        >
-          {content}
-        </a>
-      ) : (
-        content
-      )}
+      <Link to={to} className="flex w-full h-full justify-center items-center">
+        {content}
+      </Link>
     </li>
   );
 };

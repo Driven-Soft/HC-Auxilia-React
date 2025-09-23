@@ -30,7 +30,7 @@ const Home = () => {
             link="/cuidador"
           />
           <IconCard
-            title="FAQ"
+            title="FAQ - Perguntas"
             imgSrc={faqIcon}
             alt="Manuais e Ajuda"
             link="/faq"
