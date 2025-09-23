@@ -15,6 +15,7 @@ import IntegranteDetalhe from "./routes/IntegranteDetalhe/IntegranteDetalhe.tsx"
 import Manuais from "./routes/Manuais/Manuais.tsx";
 import ComCadastro from "./routes/Manuais/ComCadastro.tsx";
 import SemCadastro from "./routes/Manuais/SemCadastro.tsx";
+import ManualTeleconsulta from "./routes/Manuais/ManualTeleconsulta.tsx";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,8 @@ const router = createBrowserRouter([
       { path: "integrante/:rm", element: <IntegranteDetalhe /> },
       { path: "manuais", element: <Manuais />},
       { path: "manuais/comcadastro", element: <ComCadastro /> },
-      { path: "manuais/semcadastro", element: <SemCadastro /> }
+      { path: "manuais/semcadastro", element: <SemCadastro /> },
+      { path: "manuais/teleconsulta", element: <ManualTeleconsulta /> }
     ],
   },
 ]);

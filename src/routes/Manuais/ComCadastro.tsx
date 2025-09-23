@@ -1,3 +1,4 @@
+import ButtonWrapper from "../../components/ButtonWrapper"
 import InfoDiv from "../../components/InfoDiv"
 import InfoText from "../../components/InfoText"
 import VoltarButton from "../../components/VoltarButton"
@@ -37,10 +38,13 @@ const ComCadastro = () => {
           <img src="/src/assets/icones/imgmanuais/acesso.png" alt=""/>
         </InfoDiv>
         
-        <InfoDiv> 
+        <InfoDiv className="w-[80%] sm:w-[80%] md:w-[80%] lg:w-[60%] h-auto text-center">
           <InfoText>
-            <p>Tendo feito tudo corretamente, você acessa o Portal do Paciente HC com sucesso!</p>
+              <p className="text-md">Quer saber como acessar a teleconsulta?</p>
           </InfoText>
+          <ButtonWrapper className="mt-4" to="/manuais/teleconsulta">
+              <p className="text-lg">Manual de Teleconsulta</p>
+          </ButtonWrapper>
         </InfoDiv>
         <VoltarButton />
     </Wrapper>

@@ -20,6 +20,7 @@ const Manuais = () => {
                 <p>O acesso ao Portal do Paciente HC é feito por meio de nosso aplicativo.</p>
                 <br />
                 <p className="font-extrabold">Você pode fazer download do aplicativo Portal do Paciente HC pela loja de aplicativos do seu telefone.</p>
+
             </InfoText>
         </InfoDiv>
         <InfoDiv className="flex flex-col sm:flex-row justify-around w-[90%] md:w-[80%]">
@@ -69,6 +70,8 @@ const Manuais = () => {
                 </ButtonWrapper>
             </div>
         </InfoDiv>
+        <a href="https://portaldopaciente.hc.fm.usp.br/ajuda-externa" target="_bank"
+        className="text-blue-600 underline pb-4">Ainda preciso de ajuda</a>
         <VoltarButton />
     </Wrapper>
     </>
