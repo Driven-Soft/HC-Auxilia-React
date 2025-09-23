@@ -1,3 +1,4 @@
+import ButtonWrapper from "../../components/ButtonWrapper"
 import InfoDiv from "../../components/InfoDiv"
 import InfoText from "../../components/InfoText"
 import VoltarButton from "../../components/VoltarButton"
@@ -14,27 +15,37 @@ const Contato = () => {
         </InfoDiv>
 
         <InfoDiv>
+          <div className="flex flex-col text-center">
+            <InfoText>
+              <h1 className="font-bold pb-3 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-600 bg-clip-text text-transparent">Gostaria de receber notificações para seus agendamentos?</h1>
+            </InfoText>
+            <ButtonWrapper to="/contato/notificacoes">
+              CLIQUE AQUI
+            </ButtonWrapper>
+          </div>
+
           <h4 className="
           text-[#505050] py-2 px-4 font-medium text-lg lg:text-3xl dark:text-yellow-300">
             Hospital das Clínicas da Faculdade de Medicina da Universidade de São Paulo
           </h4>
-          <h5 className="text-[#505050] py-2 px-4 font-bold text-md lg:text-2xl dark:text-yellow-300">
-            Endereço:
-          </h5>
+          
+          <InfoText>
+            <h1 className="text-3xl font-bold">Endereço:</h1>
+          </InfoText>
+          
           <InfoText>
             <p>Av. Doutor Enéas Carvalho Aguiar, 255</p>
-          </InfoText>
-          <InfoText>
             <p>Cerqueira César</p>
-          </InfoText>
-          <InfoText>
             <p>05403-000</p>
-          </InfoText>
-          <InfoText>
             <p>São Paulo - Brasil</p>
-          </InfoText> 
+          </InfoText>
+
           <InfoText>
-            <p>Tel.: (0xx11) 2661-0000</p>
+            <h1 className="text-3xl font-bold">Telefone:</h1>
+          </InfoText> 
+
+          <InfoText>
+            <p>(0xx11) 2661-0000</p>
           </InfoText> 
         </InfoDiv>
       </section>

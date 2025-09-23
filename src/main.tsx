@@ -16,6 +16,7 @@ import Manuais from "./routes/Manuais/Manuais.tsx";
 import ComCadastro from "./routes/Manuais/ComCadastro.tsx";
 import SemCadastro from "./routes/Manuais/SemCadastro.tsx";
 import ManualTeleconsulta from "./routes/Manuais/ManualTeleconsulta.tsx";
+import Notificacoes from "./routes/Contato/Notificacoes.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,8 @@ const router = createBrowserRouter([
       { path: "manuais", element: <Manuais />},
       { path: "manuais/comcadastro", element: <ComCadastro /> },
       { path: "manuais/semcadastro", element: <SemCadastro /> },
-      { path: "manuais/teleconsulta", element: <ManualTeleconsulta /> }
+      { path: "manuais/teleconsulta", element: <ManualTeleconsulta /> },
+      { path: "contato/notificacoes", element: <Notificacoes />}
     ],
   },
 ]);
