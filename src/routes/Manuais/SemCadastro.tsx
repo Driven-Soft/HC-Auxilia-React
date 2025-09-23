@@ -71,7 +71,8 @@ const SemCadastro = () => {
           <InfoText>
               <p className="text-md">Quer saber como acessar a teleconsulta?</p>
           </InfoText>
-          <ButtonWrapper className="mt-4" to="/manuais/teleconsulta">
+          <ButtonWrapper className="mt-4" to="/manuais/teleconsulta"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
               <p className="text-lg">Manual de Teleconsulta</p>
           </ButtonWrapper>
         </InfoDiv>
