@@ -16,10 +16,18 @@ const Sobre = () => {
         </InfoDiv>
 
         <InfoDiv>
-          <InfoText texto="O HC Auxilia é uma solução desenvolvida para reduzir as barreiras digitais no acesso ao Portal do Paciente do Hospital das Clínicas."/>
-          <InfoText texto="Seu objetivo é apoiar pacientes, cuidadores e familiares em toda a jornada de saúde, tornando o acompanhamento mais simples, acessível e intuitivo."/>
-          <InfoText texto="Com ele, a experiência digital deixa de ser um obstáculo e se transforma em um aliado no cuidado, ajudando a diminuir o absenteísmo em consultas e fortalecendo a relação entre paciente e hospital."/>
-          <InfoText texto="O HC Auxilia promove inclusão digital, reduz o absenteísmo em consultas e aproxima cada paciente do cuidado com a própria saúde."/>
+          <InfoText>
+            <p>O HC Auxilia é uma solução desenvolvida para reduzir as barreiras digitais no acesso ao Portal do Paciente do Hospital das Clínicas.</p>
+          </InfoText>
+          <InfoText>
+            <p>Seu objetivo é apoiar pacientes, cuidadores e familiares em toda a jornada de saúde, tornando o acompanhamento mais simples, acessível e intuitivo.</p>
+          </InfoText>
+          <InfoText>
+            <p>Com ele, a experiência digital deixa de ser um obstáculo e se transforma em um aliado no cuidado, ajudando a diminuir o absenteísmo em consultas e fortalecendo a relação entre paciente e hospital.</p>
+          </InfoText>
+          <InfoText>
+            <p>O HC Auxilia promove inclusão digital, reduz o absenteísmo em consultas e aproxima cada paciente do cuidado com a própria saúde.</p>
+          </InfoText>
         </InfoDiv>
       </section>
       <VoltarButton /> 

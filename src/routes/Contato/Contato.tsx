@@ -21,11 +21,21 @@ const Contato = () => {
           <h5 className="text-[#505050] py-2 px-4 font-bold text-md lg:text-2xl dark:text-yellow-300">
             Endereço:
           </h5>
-          <InfoText texto="Av. Doutor Enéas Carvalho Aguiar, 255"/>
-          <InfoText texto="Cerqueira César"/>
-          <InfoText texto="05403-000"/>
-          <InfoText texto="São Paulo - Brasil"/> 
-          <InfoText texto="Tel.: (0xx11) 2661-0000"/> 
+          <InfoText>
+            <p>Av. Doutor Enéas Carvalho Aguiar, 255</p>
+          </InfoText>
+          <InfoText>
+            <p>Cerqueira César</p>
+          </InfoText>
+          <InfoText>
+            <p>05403-000</p>
+          </InfoText>
+          <InfoText>
+            <p>São Paulo - Brasil</p>
+          </InfoText> 
+          <InfoText>
+            <p>Tel.: (0xx11) 2661-0000</p>
+          </InfoText> 
         </InfoDiv>
       </section>
       <VoltarButton />

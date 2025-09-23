@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
 interface InfoDivProps {
-  children: ReactNode;
   className?: string;
+  children: ReactNode;
 }
 
 const InfoDiv = ({ children, className = "" }: InfoDivProps) => {

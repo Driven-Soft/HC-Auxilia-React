@@ -2,20 +2,24 @@ import type { ReactNode } from "react"
 import { useNavigate } from "react-router-dom"
  
 interface WrapperProps {
-  children: ReactNode
-  className?: string
-  to?: string
-  onClick?: () => void
-  type?: string
+  children: ReactNode;
+  className?: string;
+  to?: string;
+  href?: string;
+  onClick?: () => void;
+  type?: string;
 }
- 
-const ButtonWrapper = ({ onClick, children, className = "", to }: WrapperProps) => {
+
+const ButtonWrapper = ({ onClick, children, className = "", to, href }: WrapperProps) => {
   const navigate = useNavigate()
- 
+
   const handleClick = () => {
     if (to) {
       navigate(to)
+    } else if (href) {
+      window.open(href, "_blank")
     }
+
     if (onClick) {
       onClick()
     }
