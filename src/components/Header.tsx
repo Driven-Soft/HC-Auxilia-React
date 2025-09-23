@@ -102,12 +102,9 @@ const Header = () => {
         >
           <ItemHeaderMobile titulo="Sobre" to="/sobre" />
           <hr className="border-[#85c5e2]" />
-          <ItemHeaderMobile titulo="Contato" to="/contato"/>
+          <ItemHeaderMobile titulo="Contato" to="/contato" />
           <hr className="border-[#85c5e2]" />
-          <ItemHeaderMobile
-            titulo="Manuais"
-            href="https://portaldopaciente.hc.fm.usp.br/manuais-portal"
-          />
+          <ItemHeaderMobile titulo="Manuais" to="/manuais" />
           <hr className="border-[#85c5e2]" />
           <ItemHeaderMobile titulo="Integrantes" to="/integrantes" />
         </ul>

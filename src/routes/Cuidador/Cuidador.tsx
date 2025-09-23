@@ -14,18 +14,19 @@ import VoltarButton from "../../components/VoltarButton";
 const Cuidador = () => {
   return (
     <main>
+      <Wrapper className="flex-col"> {/*SEÇÃO  DO MAIN GERAL*/}
       <InfoDiv className="flex items-center pt-2 md:pt-3 px-4 mt-4 justify-center">
         <img src="/src/assets/icones/cuidadores.png" alt="" className="w-10 h-10 sm:w-10 sm:h-10 md:w-15 md:h-15 list-none flex justify-center items-center" />
         <h1 className="p-1 sm:p-4 text-2xl md:text-4xl text-[#4A4A4A] font-bold dark:text-yellow-300">Área do Cuidador</h1>
       </InfoDiv>
-      <Wrapper className="flex-col md:flex-row"> {/*SEÇÃO  DO MAIN GERAL*/}
+      <div className="flex flex-col md:flex-row">
         <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center px-2 py-4 lg:px-7"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
           <IconCard
             title="Acessar Teleconsulta"
             imgSrc={teleconsulta}
             alt="Teleconsultas"
             href="https://portaldopaciente.hc.fm.usp.br/teleconsulta"
-          />
+            />
           <IconCard
             title="Perfil do Paciente"
             imgSrc={perfilIcon}
@@ -49,25 +50,25 @@ const Cuidador = () => {
             imgSrc={consultasIcon}
             alt="Consultas"
             href="https://portaldopaciente.hc.fm.usp.br/agendamentos"
-          />
+            />
           <IconCard
             title="FAQ"
             imgSrc={faqIcon}
             alt="Manuais e Ajuda"
             link="/faq"
-          />
+            />
           <IconCard
             title="Pesquisa de satisfação"
             imgSrc={feedbackIcon}
             alt="Acessibilidade"
             link="/feedback"
-          />
+            />
           <IconCard
             title="Assistente Virtual"
             imgSrc={assistenteIcon}
             alt="Assistente Virtual"
             onClick={() => window.toggleWatsonChat && window.toggleWatsonChat()}
-          />
+            />
         </section>
  
         <aside className="flex-1 p-4 mt-4 md:mt-0 ">
@@ -81,6 +82,7 @@ const Cuidador = () => {
             </InfoDiv>
         <VoltarButton />
         </aside>
+      </div>
       </Wrapper>
     </main>
   )

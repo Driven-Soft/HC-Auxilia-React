@@ -16,12 +16,14 @@ const Contato = () => {
 
         <InfoDiv>
           <div className="flex flex-col text-center">
+          <hr className="border-[#c9c9c9] border-b-2 rounded-4xl my-3 w-[50%] self-center" /> 
             <InfoText>
               <h1 className="font-bold pb-3 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-600 bg-clip-text text-transparent">Gostaria de receber notificações para seus agendamentos?</h1>
             </InfoText>
             <ButtonWrapper to="/contato/notificacoes">
               CLIQUE AQUI
             </ButtonWrapper>
+            <hr className="border-[#c9c9c9] border-b-2 rounded-4xl my-3 w-[50%] self-center" /> 
           </div>
 
           <h4 className="
