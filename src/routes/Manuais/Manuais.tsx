@@ -3,6 +3,9 @@ import InfoDiv from "../../components/InfoDiv"
 import InfoText from "../../components/InfoText"
 import VoltarButton from "../../components/VoltarButton"
 import Wrapper from "../../components/Wrapper"
+import AppleIcon from "../../assets/icones/apple-logo-svgrepo-com.svg"
+import AndroidIcon from "../../assets/icones/android-svgrepo-com.svg"
+import SetaIcon from "../../assets/icones/seta.png"
 
 const Manuais = () => {
   return (
@@ -27,7 +30,7 @@ const Manuais = () => {
             <div className="flex flex-col text-center justify-center items-center flex-1">
                 <InfoText>Se você usa <strong className="text-[#007fe7]">Iphone</strong>, clique neste botão para baixar o aplicativo:</InfoText>
                 <img
-                src="/src/assets/icones/apple-logo-svgrepo-com.svg" alt=""
+                src={AppleIcon} alt=""
                 className="pb-4"/>
                 <ButtonWrapper href="https://apps.apple.com/br/app/portal-do-paciente-hc/id1572694502">
                     <p>BAIXAR APLICATIVO</p>
@@ -39,7 +42,7 @@ const Manuais = () => {
             <div className="flex flex-col text-center justify-center items-center flex-1">
                 <InfoText>Se você usa qualquer <strong className="text-[#007fe7]">outro modelo</strong>, clique neste botão:</InfoText>
                 <img
-                src="/src/assets/icones/android-svgrepo-com.svg" alt=""
+                src={AndroidIcon} alt=""
                 className="pb-4"/>
                 <ButtonWrapper href="https://play.google.com/store/apps/details?id=com.netihc.portaldopaciente">
                     <p>BAIXAR APLICATIVO</p>
@@ -50,7 +53,7 @@ const Manuais = () => {
         <InfoDiv>
             <InfoText className="flex flex-col justify-center text-center items-center">
                 <h1 className="font-medium">Após ter baixado o aplicativo:</h1>
-                <img src="/src/assets/icones/seta.png" alt="" className="rotate-180 size-10 sm:size-15"/>
+                <img src={SetaIcon} alt="" className="rotate-180 size-10 sm:size-15"/>
             </InfoText>
         </InfoDiv>
 

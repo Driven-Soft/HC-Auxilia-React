@@ -3,7 +3,10 @@ import InfoDiv from "../../components/InfoDiv"
 import InfoText from "../../components/InfoText"
 import VoltarButton from "../../components/VoltarButton"
 import Wrapper from "../../components/Wrapper"
-
+import CadastrarIcon_1 from "../../assets/icones/imgmanuais/cadastrarsenha.png"
+import CadastrarIcon_2 from "../../assets/icones/imgmanuais/cadastrarsenha_2.png"
+import CadastrarIcon_3 from "../../assets/icones/imgmanuais/cadastrarsenha_3.png"
+import CadastrarIcon_4 from "../../assets/icones/imgmanuais/cadastrarsenha_4.png"
 const SemCadastro = () => {
   return (
     <>
@@ -26,7 +29,7 @@ const SemCadastro = () => {
         </InfoDiv>
 
         <InfoDiv className="w-[80%] sm:w-[50%] md:w-[40%] lg:w-[30%] h-auto">
-          <img src="/src/assets/icones/imgmanuais/cadastrarsenha.png" alt=""/>
+          <img src={CadastrarIcon_1} alt=""/>
         </InfoDiv>
 
         <InfoDiv className="lg:max-w-[70%]">
@@ -38,7 +41,7 @@ const SemCadastro = () => {
         </InfoDiv>
 
         <InfoDiv className="w-[80%] sm:w-[50%] md:w-[40%] lg:w-[30%] h-auto">
-          <img src="/src/assets/icones/imgmanuais/cadastrarsenha_2.png" alt=""/>
+          <img src={CadastrarIcon_2} alt=""/>
         </InfoDiv>
 
         <InfoDiv className="lg:max-w-[70%]">
@@ -50,7 +53,7 @@ const SemCadastro = () => {
         </InfoDiv>
 
         <InfoDiv className="w-[80%] sm:w-[50%] md:w-[40%] lg:w-[30%] h-auto">
-          <img src="/src/assets/icones/imgmanuais/cadastrarsenha_3.png" alt=""/>
+          <img src={CadastrarIcon_3} alt=""/>
         </InfoDiv>
         
         <InfoDiv className="lg:max-w-[70%]">
@@ -64,7 +67,7 @@ const SemCadastro = () => {
         </InfoDiv>
 
         <InfoDiv className="w-[80%] sm:w-[50%] md:w-[40%] lg:w-[30%] h-auto">
-          <img src="/src/assets/icones/imgmanuais/cadastrarsenha_4.png" alt=""/>
+          <img src={CadastrarIcon_4} alt=""/>
         </InfoDiv>
 
         <InfoDiv className="w-[80%] lg:w-[60%] h-auto text-center">

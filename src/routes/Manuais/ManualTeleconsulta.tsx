@@ -3,6 +3,9 @@ import InfoDiv from "../../components/InfoDiv"
 import InfoText from "../../components/InfoText"
 import VoltarButton from "../../components/VoltarButton"
 import Wrapper from "../../components/Wrapper"
+import TeleconsultaManual_1 from "../../assets/icones/imgmanuais/teleconsulta_1.png"
+import TeleconsultaManual_2 from "../../assets/icones/imgmanuais/teleconsulta_2.png"
+import TeleconsultaManual_3 from "../../assets/icones/imgmanuais/teleconsulta_3.png"
 
 const ManualTeleconsulta = () => {
   return (
@@ -21,7 +24,7 @@ const ManualTeleconsulta = () => {
         </InfoDiv>
 
         <InfoDiv className="w-[85%] md:w-[70%] lg:w-[50%] h-auto flex justify-center">
-          <img src="/src/assets/icones/imgmanuais/teleconsulta_1.png" alt=""/>
+          <img src={TeleconsultaManual_1} alt=""/>
         </InfoDiv>
 
         <InfoDiv>
@@ -31,7 +34,7 @@ const ManualTeleconsulta = () => {
         </InfoDiv>
 
         <InfoDiv className="w-[85%] md:w-[70%] lg:w-[50%] h-auto flex justify-center">
-          <img src="/src/assets/icones/imgmanuais/teleconsulta_2.png" alt=""/>
+          <img src={TeleconsultaManual_2} alt=""/>
         </InfoDiv>
 
         <InfoDiv className="lg:max-w-[80%]">
@@ -41,7 +44,7 @@ const ManualTeleconsulta = () => {
         </InfoDiv>
 
         <InfoDiv className="w-[65%] md:w-[40%] lg:w-[30%] h-auto flex justify-center">
-          <img src="/src/assets/icones/imgmanuais/teleconsulta_3.png" alt=""/>
+          <img src={TeleconsultaManual_3} alt=""/>
         </InfoDiv>
 
         <InfoDiv className="lg:max-w-[80%]">

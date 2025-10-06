@@ -10,13 +10,14 @@ import teleconsulta from "../../assets/icones/hospital.png";
 import Wrapper from "../../components/Wrapper";
 import InfoDiv from "../../components/InfoDiv";
 import VoltarButton from "../../components/VoltarButton";
+import cuidadoresIcon from "../../assets/icones/cuidadores.png";
  
 const Cuidador = () => {
   return (
     <main>
       <Wrapper className="flex-col"> {/*SEÇÃO  DO MAIN GERAL*/}
       <InfoDiv className="flex items-center pt-2 md:pt-3 px-4 mt-4 justify-center">
-        <img src="/src/assets/icones/cuidadores.png" alt="" className="w-10 h-10 sm:w-10 sm:h-10 md:w-15 md:h-15 list-none flex justify-center items-center" />
+        <img src={cuidadoresIcon} alt="" className="w-10 h-10 sm:w-10 sm:h-10 md:w-15 md:h-15 list-none flex justify-center items-center" />
         <h1 className="p-1 sm:p-4 text-2xl md:text-4xl text-[#4A4A4A] font-bold dark:text-yellow-300">Área do Cuidador</h1>
       </InfoDiv>
       <div className="flex flex-col md:flex-row">

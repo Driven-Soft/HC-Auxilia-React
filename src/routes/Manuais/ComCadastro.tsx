@@ -3,6 +3,8 @@ import InfoDiv from "../../components/InfoDiv"
 import InfoText from "../../components/InfoText"
 import VoltarButton from "../../components/VoltarButton"
 import Wrapper from "../../components/Wrapper"
+import portalIcon from "../../assets/icones/imgmanuais/portalpaciente.png";
+import acessoIcon from "../../assets/icones/imgmanuais/acesso.png";
 
 const ComCadastro = () => {
   return (
@@ -23,7 +25,7 @@ const ComCadastro = () => {
         </InfoDiv>
 
         <InfoDiv className="w-[80%] sm:w-[50%] md:w-[40%] lg:w-[20%] h-auto">
-          <img src="/src/assets/icones/imgmanuais/portalpaciente.png" alt=""/>
+          <img src={portalIcon} alt=""/>
         </InfoDiv>
 
         <InfoDiv>
@@ -35,7 +37,7 @@ const ComCadastro = () => {
         </InfoDiv>
 
         <InfoDiv className="w-[80%] sm:w-[50%] md:w-[40%] lg:w-[20%] h-auto">
-          <img src="/src/assets/icones/imgmanuais/acesso.png" alt=""/>
+          <img src={acessoIcon} alt=""/>
         </InfoDiv>
         
         <InfoDiv className="w-[80%] sm:w-[80%] md:w-[80%] lg:w-[60%] h-auto text-center">
