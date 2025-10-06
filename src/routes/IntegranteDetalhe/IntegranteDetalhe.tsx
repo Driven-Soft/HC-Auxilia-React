@@ -19,7 +19,9 @@ window.open(url, "_blank", "noopener,noreferrer");
   if (!integrante) return (
     <Wrapper className="items-center justify-center h-screen">
      <InfoDiv>
-      <InfoText  texto="Integrante não encontrado"/>
+      <InfoText>
+        <p>Integrante não encontrado.</p>
+      </InfoText>
       <VoltarButton />
      </InfoDiv>
     </Wrapper>
