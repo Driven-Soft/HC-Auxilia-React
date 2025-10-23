@@ -15,9 +15,9 @@ const IconCard = ({title,imgSrc,alt,link,href,onClick,}: IconCardProps) => {
       <img
         src={imgSrc}
         alt={alt}
-        className="w-[60%] h-[60%] object-contain mb-2 aspect-square dark:invert"
+        className="w-[55%] h-[55%] object-contain mb-1 aspect-square dark:invert"
       />
-      <div className="text-black dark:text-yellow-300 font-medium text-center text-sm sm:text-base md:text-lg">
+      <div className="text-black dark:text-yellow-300 font-medium text-center text-sm sm:text-2xl md:text-lg 2xl:text-[26px]">
         {title}
       </div>
     </div>

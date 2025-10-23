@@ -20,11 +20,11 @@ const Header = () => {
   }, [location.pathname]);
 
   return (
-    <header className="dark:bg-black dark:from-black dark:to-black flex items-center bg-gradient-to-r from-[#3F58FF] to-[#00BBD3] px-3 py-2 gap-2 shadow-[0_2px_5px_rgba(0,0,0,0.3)] top-0 z-40 min-h-[34px] sm:px-4 sm:gap-3 md:gap-4 lg:px-6 ">
+    <header className="dark:bg-black dark:from-black dark:to-black flex items-center bg-gradient-to-r from-[#3F58FF] to-[#00BBD3] px-3 py-2 gap-1 shadow-[0_2px_5px_rgba(0,0,0,0.3)] top-0 z-40 min-h-[34px] sm:px-4 sm:gap-3 md:gap-4 lg:px-6 ">
       {/* Logo */}
       <Link
         to="/"
-        className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-18 lg:h-18 transition-all duration-200"
+        className="flex-shrink-0 w-11 h-11 sm:w-14 sm:h-14 md:w-18 md:h-18 lg:w-20 lg:h-20 transition-all duration-200 mr-1"
       >
         <img
           src={HCAuxiliaLogo}
