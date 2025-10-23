@@ -29,7 +29,7 @@ const content = (
         <img
         src={imgSrc}
         alt={alt}
-        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 aspect-square object-contain dark:invert"
+        className="w-[60%] h-[60%] object-contain mb-2 aspect-square dark:invert"
         />
         <div className="text-black dark:text-yellow-300 font-medium text-center text-sm sm:text-base md:text-lg">
         {title}
@@ -41,6 +41,7 @@ return (
     <article
         onClick={() => setDarkMode((prev) => !prev)}
         className="
+        aspect-[10/9]
         bg-gradient-to-br from-[#ffffff] to-[#f1f1f1] 
         hover:from-[#eeeeee] hover:to-[#e9e9e9]
         rounded-md shadow-[0_2px_5px_rgba(0,0,0,0.3)] 
