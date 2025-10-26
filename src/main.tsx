@@ -17,6 +17,7 @@ import ComCadastro from "./routes/Manuais/ComCadastro.tsx";
 import SemCadastro from "./routes/Manuais/SemCadastro.tsx";
 import ManualTeleconsulta from "./routes/Manuais/ManualTeleconsulta.tsx";
 import Notificacoes from "./routes/Contato/Notificacoes.tsx";
+import { ApiProvider } from "./context/Api/ApiProvider.tsx";
 
 const router = createBrowserRouter([
   {
@@ -30,19 +31,21 @@ const router = createBrowserRouter([
       { path: "faq", element: <Faq /> },
       { path: "feedback", element: <Feedback /> },
       { path: "integrantes", element: <Integrantes /> },
-      { path: "sobre", element: <Sobre />},
+      { path: "sobre", element: <Sobre /> },
       { path: "integrante/:rm", element: <IntegranteDetalhe /> },
-      { path: "manuais", element: <Manuais />},
+      { path: "manuais", element: <Manuais /> },
       { path: "manuais/comcadastro", element: <ComCadastro /> },
       { path: "manuais/semcadastro", element: <SemCadastro /> },
       { path: "manuais/teleconsulta", element: <ManualTeleconsulta /> },
-      { path: "contato/notificacoes", element: <Notificacoes />}
+      { path: "contato/notificacoes", element: <Notificacoes /> },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ApiProvider>
+      <RouterProvider router={router} />
+    </ApiProvider>
   </StrictMode>
 );
