@@ -114,7 +114,7 @@ const Home = () => {
               </p>
             ) : (
               exames
-                .filter((exame) => exame.status?.trim().toUpperCase() === "A")
+                .filter((exame) => exame.status?.toUpperCase() === "A")
                 .map((exame, index) => (
                   <AgendaCard
                     key={exame.idExame ?? index}

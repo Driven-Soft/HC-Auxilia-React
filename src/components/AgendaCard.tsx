@@ -40,9 +40,9 @@ const AgendaCard = ({ exame, isOpen, onToggle, className }: AgendaCardProps) => 
         <p className="font-medium"><strong>Tipo do exame:</strong> {exame.nomeExame} - {exame.dataHoraExame.replace(/-/g, "/")}</p>
         <p className="font-medium"><strong>Médico(a):</strong> {exame.nomeDoutor}</p>
         <p className="font-medium">
-          <strong>Endereço:</strong>
+          <strong>Endereço: </strong>
           {exame.nomeExame === "Teleconsulta"
-            ? `Seção de Teleconsulta no aplicativo Portal do Paciente HC,`
+            ? `Seção de Teleconsulta no aplicativo Portal do Paciente HC`
             : `${exame.logradouro}, ${exame.numero} — ${exame.estado}`}
         </p>
       </div>

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import ButtonWrapper from "./ButtonWrapper";
 import checkmarkIcon from "../assets/icones/checkmark.png";
+import { useApi } from "../context/Api/useApi";
 
 type FeedbackFormData = {
   name: string;
@@ -17,10 +18,32 @@ export default function FeedbackForm() {
     reset,
   } = useForm<FeedbackFormData>();
 
-  const onSubmit = (data: FeedbackFormData) => {
-    console.log("📩 Dados enviados:", data);
+  const { apiUrl } = useApi();
+
+const onSubmit = async (data: FeedbackFormData) => {
+  try {
+    const payload = {
+      nome: data.name,
+      email: data.email,
+      nivelSatisfacao: data.satisfaction,
+      sugestao: data.message,
+    };
+
+    const res = await fetch(`${apiUrl}/feedbacks`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const result = await res.json().catch(() => null);
+    console.log("📩 Dados enviados com sucesso:", result ?? data);
     reset();
-  };
+  } catch (err) {
+    console.error("Erro de rede ao enviar feedback:", err);
+  }
+};
 
   return (
     <div className="bg-white shadow-[2px_5px_10px_rgba(0,0,0,0.2)] rounded-2xl w-[95%] sm:w-full sm:max-w-lg lg:max-w-[45%] p-8 mt-1 mb-4 dark:bg-black dark:border-2 dark:border-white">
@@ -48,6 +71,7 @@ export default function FeedbackForm() {
             </label>
             <input
               type="text"
+              autoComplete="name"
               id="name"
               {...register("name", {
                 required: "O nome é obrigatório",
@@ -56,7 +80,6 @@ export default function FeedbackForm() {
                   message: "O nome deve conter pelo menos duas letras",
                 },
               })}
-              autoComplete="off"
               className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-yellow-300"
             />
             {errors.name && (
@@ -105,6 +128,7 @@ export default function FeedbackForm() {
                     value={num}
                     {...register("satisfaction", {
                       required: "Selecione uma nota",
+                      valueAsNumber: true,
                     })}
                     className="peer hidden"
                   />
