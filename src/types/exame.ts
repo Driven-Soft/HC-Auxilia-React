@@ -6,4 +6,5 @@ export interface Exame {
   logradouro: string;
   numero: string;
   estado: string;
+  status: string;
 }

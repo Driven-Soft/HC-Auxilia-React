@@ -113,14 +113,16 @@ const Home = () => {
                 Carregando seus exames...
               </p>
             ) : (
-              exames.map((exame, index) => (
-                <AgendaCard
-                  key={exame.idExame ?? index}
-                  exame={exame}
-                  isOpen={openIndex === index}
-                  onToggle={() => handleToggle(index)}
-                />
-              ))
+              exames
+                .filter((exame) => exame.status?.trim().toUpperCase() === "A")
+                .map((exame, index) => (
+                  <AgendaCard
+                    key={exame.idExame ?? index}
+                    exame={exame}
+                    isOpen={openIndex === index}
+                    onToggle={() => handleToggle(index)}
+                  />
+                ))
             )}
           </div>
         </aside>
