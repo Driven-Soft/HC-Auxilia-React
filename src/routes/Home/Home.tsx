@@ -1,5 +1,4 @@
-import OpenCard from "../../components/OpenCard"
-import IconCard from "../../components/IconCard"
+import IconCard from "../../components/IconCard";
 import assistenteIcon from "../../assets/icones/assistente.png";
 import cuidadoresIcon from "../../assets/icones/cuidadores.png";
 import faqIcon from "../../assets/icones/faq.png";
@@ -11,12 +10,43 @@ import acessibilidadeIcon from "../../assets/icones/acessibilidade.png";
 import feedbackIcon from "../../assets/icones/feedback.png";
 import Wrapper from "../../components/Wrapper";
 import DarkModeToggle from "../../components/DarkModeToggle";
+import { useState } from "react";
+import { useEffect } from "react";
+import type { Exame } from "../../types/exame";
+import AgendaCard from "../../components/AgendaCard";
+import { useApi } from "../../context/Api/useApi";
 
 const Home = () => {
+  const { apiUrl } = useApi();
+  const [exames, setExames] = useState<Exame[]>([]);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  useEffect(() => {
+    async function loadExames() {
+      try {
+        const response = await fetch(`${apiUrl}/exames`);
+        console.log(response.status, response.headers);
+
+        const jsonExames = await response.json();
+        console.log(jsonExames);
+
+        setExames(jsonExames);
+      } catch (error) {
+        console.error("Erro ao carregar exames:", error);
+      }
+    }
+    loadExames();
+  }, [apiUrl]);
+
   return (
     <main>
-      <Wrapper className="flex-col md:flex-row"> {/*SEÇÃO  DO MAIN GERAL*/}
-        <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center px-2 py-4 lg:px-7"> {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
+      <Wrapper className="flex-col md:flex-row">
+        {/*SEÇÃO  DO MAIN GERAL*/}
+        <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center px-2 py-4 lg:px-7">
+          {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
           <IconCard
             title="Assistente Virtual"
             imgSrc={assistenteIcon}
@@ -71,26 +101,32 @@ const Home = () => {
             link="/feedback"
           />
         </section>
-
-        <aside className="flex-1 p-4 mt-4 md:mt-0"> {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
-          <h1 className="text-4xl text-[#4A4A4A] font-bold mb-4 not-first: dark:text-yellow-300">Veja aqui seus agendamentos marcados!</h1>
-          <div className="space-y-4"> {/* CARDS DE AGENDAMENTOS */}
-            <OpenCard titulo="Exame de rotina" data="20/10" horario="10:10h"
-            detalhes="Exame de rotina com Dra. Beatrici - Rua Exemplar Souza, 204, São Paulo - SP" />
-
-            <OpenCard titulo="Teleconsulta" data="03/11" horario="17:00h"
-            detalhes="Teleconsulta com Dr. Hayashi - Seção de Teleconsulta no aplicativo Portal do Paciente HC" />
-
-            <OpenCard titulo="Endoscopia" data="25/11" horario="14:00h"
-            detalhes="Endoscopia com Dr. Henrique - Rua Exemplar Souza, 204, São Paulo - SP" />
-
-            <OpenCard titulo="Hemograma" data="16/12" horario="08:30h"
-            detalhes="Hemograma com Dr. Aurélio - Rua Exemplar Souza, 204, São Paulo - SP" />
+        <aside className="flex-1 p-4 mt-4 md:mt-0">
+          {/* SEÇÃO DOS CARDS DE AGENDAMENTOS */}
+          <h1 className="text-4xl text-[#4A4A4A] font-bold mb-4 not-first: dark:text-yellow-300">
+            Veja aqui seus agendamentos marcados!
+          </h1>
+          <div className="space-y-4">
+            {/* CARDS DE AGENDAMENTOS */}
+            {exames.length === 0 ? (
+              <p className="text-center text-[#4A4A4A] font-bold text-xl">
+                Carregando seus exames...
+              </p>
+            ) : (
+              exames.map((exame, index) => (
+                <AgendaCard
+                  key={exame.idExame ?? index}
+                  exame={exame}
+                  isOpen={openIndex === index}
+                  onToggle={() => handleToggle(index)}
+                />
+              ))
+            )}
           </div>
         </aside>
       </Wrapper>
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

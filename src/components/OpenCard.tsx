@@ -3,13 +3,11 @@ import seta from "/src/assets/icones/seta.png";
 
 interface OpenCardProps {
   titulo : string;
-  data?: string;
-  horario?: string;
   detalhes: string;
   className?: string;
 }
 
-const OpenCard = ({ titulo, data, horario, detalhes, className }: OpenCardProps) => {
+const OpenCard = ({ titulo, detalhes, className }: OpenCardProps) => {
   const [mostrarDetalhes, setMostrarDetalhes] = useState(false);
 
   const toggleDetalhes = () => {
@@ -26,7 +24,7 @@ const OpenCard = ({ titulo, data, horario, detalhes, className }: OpenCardProps)
         ${mostrarDetalhes ? "rounded-t-lg" : "rounded-lg"}`}
       >
         <p className="text-[#505050] dark:text-yellow-300 text-md font-medium">
-          <strong className="font-bold">{titulo}</strong> {data} {horario}
+          <strong className="font-bold">{titulo}</strong>
         </p>
 
         <img
