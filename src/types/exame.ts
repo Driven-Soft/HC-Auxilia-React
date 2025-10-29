@@ -3,8 +3,10 @@ export interface Exame {
   nomeExame: string;
   dataHoraExame: string;
   nomeDoutor: string;
-  logradouro: string;
+  rua: string;
   numero: string;
+  bairro: string;
+  cidade: string;
   estado: string;
   status: string;
 }

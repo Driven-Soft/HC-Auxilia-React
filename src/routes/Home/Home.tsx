@@ -28,10 +28,10 @@ const Home = () => {
     async function loadExames() {
       try {
         const response = await fetch(`${apiUrl}/exames`);
-        console.log(response.status, response.headers);
+        // console.log(response.status, response.headers);
 
         const jsonExames = await response.json();
-        console.log(jsonExames);
+        // console.log(jsonExames);
 
         setExames(jsonExames);
       } catch (error) {
@@ -106,7 +106,7 @@ const Home = () => {
           <h1 className="text-4xl text-[#4A4A4A] font-bold mb-4 not-first: dark:text-yellow-300">
             Veja aqui seus agendamentos marcados!
           </h1>
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col">
             {/* CARDS DE AGENDAMENTOS */}
             {exames.length === 0 ? (
               <p className="text-center text-[#4A4A4A] font-bold text-xl">
