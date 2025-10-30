@@ -19,6 +19,7 @@ const AgendaCard = ({
   className,
 }: AgendaCardProps) => {
   const [showConfirm, setShowConfirm] = useState(false);
+  const [cancel, setCancel] = useState(false);
 
   return (
     <div className={`cursor-pointer shadow-xl ${className || ""}`}>
@@ -96,6 +97,7 @@ const AgendaCard = ({
               </button>
               <button
                 onClick={() => {
+                  setCancel(true);
                   onCancel(exame.idExame);
                   setShowConfirm(false);
                 }}
@@ -105,6 +107,17 @@ const AgendaCard = ({
                 DESMARCAR
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {cancel && (
+        <div className="p-4 bg-green-100 text-green-800 rounded-b-lg flex flex-row">
+          <p>
+            <strong>O exame está sendo desmarcado, aguarde.</strong>
+          </p>
+          <div className="flex justify-center items-center ml-5">
+            <div className="w-7 h-7 border-4 border-gray-300 dark:border-yellow-300 border-t-transparent rounded-full animate-spin"></div>
           </div>
         </div>
       )}
