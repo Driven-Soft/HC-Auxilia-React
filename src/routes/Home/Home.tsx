@@ -20,26 +20,37 @@ const Home = () => {
   const { apiUrl } = useApi();
   const [exames, setExames] = useState<Exame[]>([]);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [reload, setReload] = useState(false);
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // CARREGAR TODOS OS EXAMES
   useEffect(() => {
     async function loadExames() {
       try {
         const response = await fetch(`${apiUrl}/exames`);
-        // console.log(response.status, response.headers);
-
         const jsonExames = await response.json();
-        // console.log(jsonExames);
-
         setExames(jsonExames);
       } catch (error) {
         console.error("Erro ao carregar exames:", error);
       }
     }
     loadExames();
-  }, [apiUrl]);
+  }, [apiUrl, reload]);
+
+  // CANCELAR EXAME POR ID (marca status como 'F')
+  async function handleCancel(id: number) {
+    try {
+      const response = await fetch(`${apiUrl}/exames/${id}/finalizar`, {
+        method: "PUT",
+      });
+      if (!response.ok) throw new Error("Erro ao atualizar status do exame");
+      setReload((prev) => !prev);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <main>
@@ -106,12 +117,17 @@ const Home = () => {
           <h1 className="text-4xl text-[#4A4A4A] font-bold mb-4 not-first: dark:text-yellow-300">
             Veja aqui seus agendamentos marcados!
           </h1>
-          <div className="space-y-4 flex flex-col">
+          <div className="space-y-4 flex flex-col dark:text-yellow-300">
             {/* CARDS DE AGENDAMENTOS */}
             {exames.length === 0 ? (
-              <p className="text-center text-[#4A4A4A] font-bold text-xl">
-                Carregando seus exames...
-              </p>
+              <div>
+                <p className="text-center text-[#4A4A4A] font-bold mt-5 text-xl dark:text-yellow-300">
+                  Carregando seus exames...
+                </p>
+                <div className="flex justify-center items-center ml-5">
+                  <div className="w-7 h-7 border-4 border-gray-400 my-5 dark:border-yellow-300 border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              </div>
             ) : (
               exames
                 .filter((exame) => exame.status?.toUpperCase() === "A")
@@ -119,6 +135,7 @@ const Home = () => {
                   <AgendaCard
                     key={exame.idExame ?? index}
                     exame={exame}
+                    onCancel={handleCancel}
                     isOpen={openIndex === index}
                     onToggle={() => handleToggle(index)}
                   />
