@@ -30,6 +30,7 @@ const ButtonWrapper = ({ onClick, children, className = "", to, href }: WrapperP
       <button
         onClick={handleClick}
         className={`
+          cursor-pointer
           bg-gradient-to-r from-[#3F58FF] to-[#0022FF]
           text-white font-semibold px-6 py-3 rounded-md
           text-center

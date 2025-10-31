@@ -15,30 +15,35 @@ import { useEffect } from "react";
 import type { Exame } from "../../types/exame";
 import AgendaCard from "../../components/AgendaCard";
 import { useApi } from "../../context/Api/useApi";
-
+import LoadingIcon from "../../components/LoadingIcon";
+ 
 const Home = () => {
   const { apiUrl } = useApi();
   const [exames, setExames] = useState<Exame[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [reload, setReload] = useState(false);
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
+ 
   // CARREGAR TODOS OS EXAMES
   useEffect(() => {
     async function loadExames() {
+      setLoading(true);
       try {
         const response = await fetch(`${apiUrl}/exames`);
         const jsonExames = await response.json();
         setExames(jsonExames);
       } catch (error) {
         console.error("Erro ao carregar exames:", error);
+      } finally {
+        setLoading(false);
       }
     }
     loadExames();
   }, [apiUrl, reload]);
-
+ 
   // CANCELAR EXAME POR ID (marca status como 'F')
   async function handleCancel(id: number) {
     try {
@@ -51,7 +56,11 @@ const Home = () => {
       console.error(error);
     }
   }
-
+ 
+  const activeExames = exames.filter(
+    (exame) => exame.status?.toUpperCase() === "A"
+  );
+ 
   return (
     <main>
       <Wrapper className="flex-col md:flex-row">
@@ -119,27 +128,27 @@ const Home = () => {
           </h1>
           <div className="space-y-4 flex flex-col dark:text-yellow-300">
             {/* CARDS DE AGENDAMENTOS */}
-            {exames.length === 0 ? (
+            {loading ? (
               <div>
                 <p className="text-center text-[#4A4A4A] font-bold mt-5 text-xl dark:text-yellow-300">
                   Carregando seus exames...
                 </p>
-                <div className="flex justify-center items-center ml-5">
-                  <div className="w-7 h-7 border-4 border-gray-400 my-5 dark:border-yellow-300 border-t-transparent rounded-full animate-spin"></div>
-                </div>
+                <LoadingIcon className="my-5" />
               </div>
+            ) : activeExames.length === 0 ? (
+              <p className="text-center text-[#4A4A4A] font-bold text-xl dark:text-yellow-300">
+                Nenhum exame encontrado.
+              </p>
             ) : (
-              exames
-                .filter((exame) => exame.status?.toUpperCase() === "A")
-                .map((exame, index) => (
-                  <AgendaCard
-                    key={exame.idExame ?? index}
-                    exame={exame}
-                    onCancel={handleCancel}
-                    isOpen={openIndex === index}
-                    onToggle={() => handleToggle(index)}
-                  />
-                ))
+              activeExames.map((exame, index) => (
+                <AgendaCard
+                  key={exame.idExame ?? index}
+                  exame={exame}
+                  onCancel={handleCancel}
+                  isOpen={openIndex === index}
+                  onToggle={() => handleToggle(index)}
+                />
+              ))
             )}
           </div>
         </aside>
@@ -147,5 +156,6 @@ const Home = () => {
     </main>
   );
 };
-
+ 
 export default Home;
+ 
