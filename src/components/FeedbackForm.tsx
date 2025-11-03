@@ -125,11 +125,15 @@ export default function FeedbackForm() {
           )}
           {/* Se já enviou com sucesso, mostra só a mensagem */}
           {showSuccess ? (
-            <div className="flex flex-col items-center gap-7 min-h-[90%]">
-              <p className="text-blue-500 text-center font-semibold text-lg">
+            <div className="flex flex-col items-center gap-7 min-h-[90%] dark:text-yellow-300">
+              <p className="text-blue-500 text-center font-semibold text-lg dark:text-yellow-300">
                 Obrigado! Sua sugestão foi enviada com sucesso.
               </p>
-              <img src={checkmarkIcon} alt="" className="h-15 w-15" />
+              <img
+                src={checkmarkIcon}
+                alt=""
+                className="h-15 w-15 dark:invert"
+              />
 
               <h1 className="text-gray-00 text-center font-semibold text-lg">
                 Digitou algo errado? Clique no botão abaixo para deletar seu
@@ -223,8 +227,8 @@ export default function FeedbackForm() {
                         className="peer hidden"
                       />
                       <span
-                        className="flex items-center justify-center py-2 px-3 rounded-lg bg-gray-200 transition 
-                        hover:bg-blue-400 hover:text-white 
+                        className="flex items-center justify-center py-2 px-3 rounded-lg bg-gray-200 transition
+                        hover:bg-blue-400 hover:text-white
                         peer-checked:bg-blue-500 peer-checked:text-white"
                       >
                         {num}
