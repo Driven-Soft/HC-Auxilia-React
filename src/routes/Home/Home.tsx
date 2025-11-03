@@ -16,7 +16,7 @@ import type { Exame } from "../../types/exame";
 import AgendaCard from "../../components/AgendaCard";
 import { useApi } from "../../context/Api/useApi";
 import LoadingIcon from "../../components/LoadingIcon";
- 
+
 const Home = () => {
   const { apiUrl } = useApi();
   const [exames, setExames] = useState<Exame[]>([]);
@@ -26,7 +26,7 @@ const Home = () => {
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
- 
+
   // CARREGAR TODOS OS EXAMES
   useEffect(() => {
     async function loadExames() {
@@ -43,7 +43,7 @@ const Home = () => {
     }
     loadExames();
   }, [apiUrl, reload]);
- 
+
   // CANCELAR EXAME POR ID (marca status como 'F')
   async function handleCancel(id: number) {
     try {
@@ -56,11 +56,11 @@ const Home = () => {
       console.error(error);
     }
   }
- 
+
   const activeExames = exames.filter(
     (exame) => exame.status?.toUpperCase() === "A"
   );
- 
+
   return (
     <main>
       <Wrapper className="flex-col md:flex-row">
@@ -133,7 +133,7 @@ const Home = () => {
                 <p className="text-center text-[#4A4A4A] font-bold mt-5 text-xl dark:text-yellow-300">
                   Carregando seus exames...
                 </p>
-                <LoadingIcon className="my-5" />
+                <LoadingIcon className="my-5 ml-5" />
               </div>
             ) : activeExames.length === 0 ? (
               <p className="text-center text-[#4A4A4A] font-bold text-xl dark:text-yellow-300">
@@ -156,6 +156,5 @@ const Home = () => {
     </main>
   );
 };
- 
+
 export default Home;
- 
