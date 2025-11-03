@@ -2,13 +2,7 @@ import { useForm } from "react-hook-form";
 import ButtonWrapper from "./ButtonWrapper";
 import checkmarkIcon from "../assets/icones/checkmark.png";
 import { useApi } from "../context/Api/useApi";
-
-type FeedbackFormData = {
-  name: string;
-  email: string;
-  satisfaction: number;
-  message: string;
-};
+import type { Feedback } from "../types/feedback";
 
 export default function FeedbackForm() {
   const {
@@ -16,34 +10,34 @@ export default function FeedbackForm() {
     handleSubmit,
     formState: { errors, isSubmitSuccessful },
     reset,
-  } = useForm<FeedbackFormData>();
+  } = useForm<Feedback>();
 
   const { apiUrl } = useApi();
 
-const onSubmit = async (data: FeedbackFormData) => {
-  try {
-    const payload = {
-      nome: data.name,
-      email: data.email,
-      nivelSatisfacao: data.satisfaction,
-      sugestao: data.message,
-    };
+  const onSubmit = async (data: Feedback) => {
+    try {
+      const payload = {
+        nome: data.name,
+        email: data.email,
+        nivelSatisfacao: data.satisfaction,
+        sugestao: data.message,
+      };
 
-    const res = await fetch(`${apiUrl}/feedbacks`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+      const res = await fetch(`${apiUrl}/feedbacks`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-    const result = await res.json().catch(() => null);
-    console.log("📩 Dados enviados com sucesso:", result ?? data);
-    reset();
-  } catch (err) {
-    console.error("Erro de rede ao enviar feedback:", err);
-  }
-};
+      const result = await res.json().catch(() => null);
+      console.log("📩 Dados enviados com sucesso:", result ?? data);
+      reset();
+    } catch (err) {
+      console.error("Erro de rede ao enviar feedback:", err);
+    }
+  };
 
   return (
     <div className="bg-white shadow-[2px_5px_10px_rgba(0,0,0,0.2)] rounded-2xl w-[95%] sm:w-full sm:max-w-lg lg:max-w-[45%] p-8 mt-1 mb-4 dark:bg-black dark:border-2 dark:border-white">
