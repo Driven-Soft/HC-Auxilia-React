@@ -14,13 +14,25 @@ export default function FeedbackForm() {
 
   const { apiUrl } = useApi();
 
+  // Gera um hash hexadecimal de 64 caracteres (32 bytes)
+  const generate64CharHash = () => {
+    const bytes = crypto.getRandomValues(new Uint8Array(32));
+    return Array.from(bytes)
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+  };
+
   const onSubmit = async (data: Feedback) => {
+    // gera o hash no momento do envio
+    const codigoHash = generate64CharHash();
+
     try {
       const payload = {
         nome: data.name,
         email: data.email,
         nivelSatisfacao: data.satisfaction,
         sugestao: data.message,
+        codigoHash: codigoHash,
       };
 
       const res = await fetch(`${apiUrl}/feedbacks`, {
@@ -32,7 +44,9 @@ export default function FeedbackForm() {
       });
 
       const result = await res.json().catch(() => null);
-      console.log("📩 Dados enviados com sucesso:", result ?? data);
+      console.log("📩 Dados enviados com sucesso:", result ?? data, {
+        codigoHash,
+      });
       reset();
     } catch (err) {
       console.error("Erro de rede ao enviar feedback:", err);
@@ -48,6 +62,14 @@ export default function FeedbackForm() {
             Obrigado! Sua sugestão foi enviada com sucesso.
           </p>
           <img src={checkmarkIcon} alt="" className="h-15 w-15" />
+
+          <h1 className="text-gray-00 text-center font-semibold text-lg">
+            Digitou algo errado? Clique no botão abaixo para alterar seu
+            feedback
+          </h1>
+          <ButtonWrapper className="text-blue-500">
+            Alterar feedback
+          </ButtonWrapper>
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
