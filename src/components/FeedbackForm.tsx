@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import ButtonWrapper from "./ButtonWrapper";
 import checkmarkIcon from "../assets/icones/checkmark.png";
 import { useApi } from "../context/Api/useApi";
@@ -8,11 +9,14 @@ export default function FeedbackForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
     reset,
   } = useForm<Feedback>();
 
   const { apiUrl } = useApi();
+  const [lastCodigoHash, setLastCodigoHash] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState<boolean>(false);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
 
   // Gera um hash hexadecimal de 64 caracteres (32 bytes)
   const generate64CharHash = () => {
@@ -23,7 +27,6 @@ export default function FeedbackForm() {
   };
 
   const onSubmit = async (data: Feedback) => {
-    // gera o hash no momento do envio
     const codigoHash = generate64CharHash();
 
     try {
@@ -44,19 +47,64 @@ export default function FeedbackForm() {
       });
 
       const result = await res.json().catch(() => null);
-      console.log("📩 Dados enviados com sucesso:", result ?? data, {
+      console.log("Dados enviados com sucesso:", result ?? data, {
         codigoHash,
       });
+      setLastCodigoHash(codigoHash);
       reset();
+      setShowSuccess(true);
     } catch (err) {
       console.error("Erro de rede ao enviar feedback:", err);
     }
   };
 
+  const handleDelete = async () => {
+    if (!lastCodigoHash) {
+      console.warn("Nenhum codigoHash disponível para deletar");
+      return;
+    }
+
+    try {
+      const res = await fetch(`${apiUrl}/feedbacks/${lastCodigoHash}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (res.ok) {
+        console.log("Feedback deletado com sucesso:\nCódigo Hash: ", lastCodigoHash);
+        setLastCodigoHash(null);
+        setShowSuccess(false);
+        setShowPopup(true);
+        setTimeout(() => setShowPopup(false), 4000);
+        reset();
+      } else {
+        const errBody = await res.text().catch(() => null);
+        console.error("Falha ao deletar feedback:", res.status, errBody);
+        alert("Falha ao deletar feedback. Veja o console para mais detalhes.");
+      }
+    } catch (err) {
+      console.error("Erro de rede ao deletar feedback:", err);
+      alert(
+        "Erro de rede ao deletar feedback. Veja o console para mais detalhes."
+      );
+    }
+  };
+
   return (
     <div className="bg-white shadow-[2px_5px_10px_rgba(0,0,0,0.2)] rounded-2xl w-[95%] sm:w-full sm:max-w-lg lg:max-w-[45%] p-8 mt-1 mb-4 dark:bg-black dark:border-2 dark:border-white">
+      {/* pop-up de exclusão */}
+      {showPopup && (
+        <div
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          className="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg z-50"
+        >
+          Feedback excluído com sucesso!
+        </div>
+      )}
       {/* Se já enviou com sucesso, mostra só a mensagem */}
-      {isSubmitSuccessful ? (
+      {showSuccess ? (
         <div className="flex flex-col items-center gap-7 min-h-[90%]">
           <p className="text-blue-500 text-center font-semibold text-lg">
             Obrigado! Sua sugestão foi enviada com sucesso.
@@ -67,8 +115,12 @@ export default function FeedbackForm() {
             Digitou algo errado? Clique no botão abaixo para alterar seu
             feedback
           </h1>
-          <ButtonWrapper className="text-blue-500">
-            Alterar feedback
+          <ButtonWrapper
+            type="button"
+            className="text-blue-500"
+            onClick={handleDelete}
+          >
+            Deletar feedback
           </ButtonWrapper>
         </div>
       ) : (
