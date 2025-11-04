@@ -6,10 +6,15 @@ import InfoDiv from "../../components/InfoDiv";
 import ButtonWrapper from "../../components/ButtonWrapper";
 import checkmarkIcon from "../../assets/icones/checkmark.png";
 import type { Contato } from "../../types/contato";
+import { useApi } from "../../context/Api/useApi";
 
 export default function Notificacoes() {
   const [sucesso, setSucesso] = useState(false);
   const [escolhaNula, setEscolhaNula] = useState(false);
+  const { apiUrl } = useApi();
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -20,16 +25,45 @@ export default function Notificacoes() {
     defaultValues: { sms: false, whatsapp: false },
   });
 
-  const onSubmit: SubmitHandler<Contato> = (data) => {
+  const onSubmit: SubmitHandler<Contato> = async (data) => {
     const { sms, whatsapp } = data;
     if (!sms && !whatsapp) {
       setEscolhaNula(true);
       setTimeout(() => setEscolhaNula(false), 3000);
       return;
     }
-    // Marcar sucesso
-    setSucesso(true);
-    reset();
+
+    setError(null);
+    setIsLoading(true);
+    try {
+      const payload = {
+        nome: data.nome,
+        telefone: data.telefone,
+        sms: data.sms ? "S" : "N",
+        whatsapp: data.whatsapp ? "S" : "N",
+      };
+
+      const res = await fetch(`${apiUrl}/contato/notificacoes`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        setSucesso(true);
+        console.log("Contato enviado com sucesso");
+        reset();
+      } else {
+        const body = await res.text().catch(() => null);
+        console.error("Falha ao enviar contato:", res.status, body);
+        setError("Falha ao enviar inscrição. Tente novamente mais tarde.");
+      }
+    } catch (err) {
+      console.error("Erro de rede ao enviar contato:", err);
+      setError("Erro de rede. Verifique sua conexão e tente novamente.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -73,6 +107,16 @@ export default function Notificacoes() {
                 avisado(a) de todos seus agendamentos e teleconsultas marcados
                 ao menos uma semana antes e um dia anterior.
               </p>
+              {isLoading && (
+                <div className="mb-2 text-center text-gray-700">
+                  Enviando...
+                </div>
+              )}
+              {error && (
+                <div className="mb-2 text-center">
+                  <p className="text-red-600">{error}</p>
+                </div>
+              )}
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col gap-4"
