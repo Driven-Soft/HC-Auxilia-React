@@ -71,8 +71,8 @@ export default function Notificacoes() {
     <Wrapper className="justify-center pt-4">
       {isLoading ? (
         <InfoDiv className="dark:text-yellow-300 dark:border-2 dark:border-white max-w-[90%] w-full">
-          <div className="min-h-[60vh] flex flex-col items-center justify-center dark:text-yellow-300 w-full">
-            <p className="text-center sm:text-md md:text-2xl font-semibold mb-4 text-gray-900">
+          <div className="min-h-[60vh] flex flex-col items-center justify-center w-full">
+            <p className="text-center sm:text-md md:text-2xl font-semibold mb-4 text-gray-900 dark:text-yellow-300">
               Aguarde! Estamos inscrevendo seu telefone...
             </p>
             <LoadingIcon />
@@ -112,7 +112,7 @@ export default function Notificacoes() {
 
             {!sucesso && (
               <>
-                <h1 className="text-2xl font-bold mb-4">
+                <h1 className="text-3xl text-gray-800 text-center dark:text-yellow-300 lg:text-left font-bold mb-4">
                   Inscreva-se para receber notificações de agendamentos!
                 </h1>
                 <p className="mb-4">

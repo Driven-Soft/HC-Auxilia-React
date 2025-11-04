@@ -5,7 +5,7 @@ import faqIcon from "../../assets/icones/faq.png";
 import consultasIcon from "../../assets/icones/consultas.png";
 import examesIcon from "../../assets/icones/exames.png";
 import receitasIcon from "../../assets/icones/receitas.png";
-import perfilIcon from "../../assets/icones/perfil.png";
+import mensagemIcon from "../../assets/icones/contato_mensagem.png";
 import acessibilidadeIcon from "../../assets/icones/acessibilidade.png";
 import feedbackIcon from "../../assets/icones/feedback.png";
 import Wrapper from "../../components/Wrapper";
@@ -166,15 +166,10 @@ const Home = () => {
             }
           />
           <IconCard
-            title="Perfil do Paciente"
-            imgSrc={perfilIcon}
-            alt="Perfil do Paciente"
-            href="https://portaldopaciente.hc.fm.usp.br/meus-dados"
-            onClick={() =>
-              handlePortalRedirect(
-                "https://portaldopaciente.hc.fm.usp.br/meus-dados"
-              )
-            }
+            title="Receber Notificações"
+            imgSrc={mensagemIcon}
+            alt="Receber notificações no meu celular"
+            link="/contato/notificacoes"
           />
           <DarkModeToggle
             title="Alto Contraste"
