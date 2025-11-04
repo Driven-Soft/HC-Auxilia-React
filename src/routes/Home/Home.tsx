@@ -10,12 +10,12 @@ import acessibilidadeIcon from "../../assets/icones/acessibilidade.png";
 import feedbackIcon from "../../assets/icones/feedback.png";
 import Wrapper from "../../components/Wrapper";
 import DarkModeToggle from "../../components/DarkModeToggle";
-import { useState, useRef } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import type { Exame } from "../../types/exame";
 import AgendaCard from "../../components/AgendaCard";
 import { useApi } from "../../context/Api/useApi";
 import LoadingIcon from "../../components/LoadingIcon";
+import ButtonWrapper from "../../components/ButtonWrapper";
 
 const Home = () => {
   const { apiUrl } = useApi();
@@ -24,7 +24,7 @@ const Home = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [reload, setReload] = useState(false);
   const [delayPopupVisible, setDelayPopupVisible] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [pendingHref, setPendingHref] = useState<string | null>(null);
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -46,19 +46,21 @@ const Home = () => {
     loadExames();
   }, [apiUrl, reload]);
 
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, []);
-
   const handlePortalRedirect = (href: string) => {
-    if (timerRef.current) clearTimeout(timerRef.current);
+    // Armazena o link e mostra o popup de confirmação
+    setPendingHref(href);
     setDelayPopupVisible(true);
-    timerRef.current = setTimeout(() => {
-      setDelayPopupVisible(false);
-      window.open(href, "_blank", "noopener,noreferrer");
-    }, 4500);
+  };
+
+  const openPendingPortal = () => {
+    if (pendingHref) window.open(pendingHref, "_blank", "noopener,noreferrer");
+    setDelayPopupVisible(false);
+    setPendingHref(null);
+  };
+
+  const cancelPendingPortal = () => {
+    setDelayPopupVisible(false);
+    setPendingHref(null);
   };
 
   // CANCELAR EXAME POR ID (marca status como 'F')
@@ -84,14 +86,28 @@ const Home = () => {
         {delayPopupVisible && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-14">
             <div className="flex flex-col gap-6 text-gray-900 text-center bg-white dark:bg-gray-900 dark:text-white px-2 sm:px-10 py-4 rounded-md shadow-lg">
-              <p className="text-2xl font-extrabold">Aguarde!</p>
+              <p className="text-2xl font-extrabold">Atenção</p>
               <p className="text-xl">
-                Você será redirecionado para o portal do paciente em 5
-                segundos...
+                Você está prestes a ser redirecionado para o portal do paciente.
               </p>
               <p className="text-xl font-bold text-blue-700">
                 Caso seu login não funcione, entre em nossa seção de Manuais!
               </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <ButtonWrapper
+                  onClick={openPendingPortal}
+                  className="bg-blue-700 text-white px-4  py-2 rounded-md font-bold w-[80%] sm:w-auto"
+                >
+                  Abrir portal
+                </ButtonWrapper>
+                <ButtonWrapper
+                  onClick={cancelPendingPortal}
+                  className="cursor-pointe px-4 py-2 rounded-md font-medium
+                  bg-gradient-to-r from-gray-400 to-gray-400 shadow-none"
+                >
+                  Cancelar
+                </ButtonWrapper>
+              </div>
             </div>
           </div>
         )}
