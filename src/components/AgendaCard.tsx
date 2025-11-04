@@ -75,7 +75,7 @@ const AgendaCard = ({ exame, isOpen, onToggle, onCancel, className }: AgendaCard
           onClick={() => setShowConfirm(false)}
         >
           <div
-            className="bg-white dark:bg-black p-6 rounded-lg shadow-lg max-w-sm w-full dark:border-2"
+            className="bg-white dark:bg-black p-6 mx-3 rounded-lg shadow-lg max-w-sm w-full dark:border-2"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-lg font-bold mb-2">Desmarcar exame</h2>

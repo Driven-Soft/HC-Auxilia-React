@@ -20,7 +20,7 @@ export const integrantes: Integrante[] = [
     git: "https://github.com/FelipeBeatriz",
     linkedIn: "https://www.linkedin.com/in/felipe-beatrici",
     email: "felipe.beatriz199@gmail.com",
-    descricao: "Desenvolvedor apaixonado por tecnologia e aprendizado contínuo. Atualmente, estou explorando projetos em PHP, TypeScript e Java, com foco em aplicações práticas e eficientes. Busco sempre aprimorar minhas habilidades e contribuir para a comunidade de código aberto."
+    descricao: "Desenvolvedor principal do HC Auxilia, apaixonado por tecnologia e aprendizado contínuo. Atualmente, estou explorando projetos em PHP, TypeScript e Java, com foco em aplicações práticas e eficientes. Busco sempre aprimorar minhas habilidades e contribuir para a comunidade de código aberto."
   },
   {
     nome: "Max Hayashi Batista",

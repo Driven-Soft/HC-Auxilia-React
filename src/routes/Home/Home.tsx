@@ -84,13 +84,13 @@ const Home = () => {
     <main>
       <Wrapper className="flex-col md:flex-row">
         {delayPopupVisible && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-14">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-12">
             <div className="flex flex-col gap-6 text-gray-900 text-center bg-white dark:bg-gray-900 dark:text-white px-2 sm:px-10 py-4 rounded-md shadow-lg">
               <p className="text-2xl font-extrabold">Atenção</p>
-              <p className="text-xl">
+              <p className="text-md">
                 Você está prestes a ser redirecionado para o portal do paciente.
               </p>
-              <p className="text-xl font-bold text-blue-700">
+              <p className="text-md font-bold text-blue-700">
                 Caso seu login não funcione, entre em nossa seção de Manuais!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
