@@ -8,6 +8,7 @@ import type { Contato } from "../../types/contato";
 
 export default function Notificacoes() {
   const [sucesso, setSucesso] = useState(false);
+  const [escolhaNula, setEscolhaNula] = useState(false);
 
   const {
     register,
@@ -21,7 +22,9 @@ export default function Notificacoes() {
   const onSubmit: SubmitHandler<Contato> = (data) => {
     const { sms, whatsapp } = data;
     if (!sms && !whatsapp) {
-      return alert("Selecione pelo menos um canal: SMS ou WhatsApp.");
+      setEscolhaNula(true);
+      setTimeout(() => setEscolhaNula(false), 3000);
+      return;
     }
     // Marcar sucesso
     setSucesso(true);
@@ -99,14 +102,22 @@ export default function Notificacoes() {
               <input type="checkbox" {...register("whatsapp")} />
               Receber via WhatsApp
             </label>
-
+            {escolhaNula && (
+              <div
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+                className="px-4 py-2"
+              >
+                <p className="text-red-600 text-sm">
+                  Selecione pelo menos um canal: SMS ou WhatsApp.
+                </p>
+              </div>
+            )}
             {/* Botão enviar */}
-            <button
-              type="submit"
-              className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700 mt-2"
-            >
+            <ButtonWrapper type="submit" className="w-full mt-4">
               Inscrever-se
-            </button>
+            </ButtonWrapper>
           </form>
         </div>
       </InfoDiv>
