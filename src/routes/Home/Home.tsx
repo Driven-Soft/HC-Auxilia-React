@@ -10,7 +10,7 @@ import acessibilidadeIcon from "../../assets/icones/acessibilidade.png";
 import feedbackIcon from "../../assets/icones/feedback.png";
 import Wrapper from "../../components/Wrapper";
 import DarkModeToggle from "../../components/DarkModeToggle";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useEffect } from "react";
 import type { Exame } from "../../types/exame";
 import AgendaCard from "../../components/AgendaCard";
@@ -23,6 +23,8 @@ const Home = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [reload, setReload] = useState(false);
+  const [delayPopupVisible, setDelayPopupVisible] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -44,6 +46,21 @@ const Home = () => {
     loadExames();
   }, [apiUrl, reload]);
 
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
+  const handlePortalRedirect = (href: string) => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    setDelayPopupVisible(true);
+    timerRef.current = setTimeout(() => {
+      setDelayPopupVisible(false);
+      window.open(href, "_blank", "noopener,noreferrer");
+    }, 4500);
+  };
+
   // CANCELAR EXAME POR ID (marca status como 'F')
   async function handleCancel(id: number) {
     try {
@@ -64,6 +81,20 @@ const Home = () => {
   return (
     <main>
       <Wrapper className="flex-col md:flex-row">
+        {delayPopupVisible && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-14">
+            <div className="flex flex-col gap-6 text-gray-900 text-center bg-white dark:bg-gray-900 dark:text-white px-2 sm:px-10 py-4 rounded-md shadow-lg">
+              <p className="text-2xl font-extrabold">Aguarde!</p>
+              <p className="text-xl">
+                Você será redirecionado para o portal do paciente em 5
+                segundos...
+              </p>
+              <p className="text-xl font-bold text-blue-700">
+                Caso seu login não funcione, entre em nossa seção de Manuais!
+              </p>
+            </div>
+          </div>
+        )}
         {/*SEÇÃO  DO MAIN GERAL*/}
         <section className="flex-1 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 place-items-center px-2 py-4 lg:px-7">
           {/* SEÇÃO DOS ÍCONES DE REDIRECIONAMENTO */}
@@ -90,24 +121,44 @@ const Home = () => {
             imgSrc={consultasIcon}
             alt="Consultas"
             href="https://portaldopaciente.hc.fm.usp.br/agendamentos"
+            onClick={() =>
+              handlePortalRedirect(
+                "https://portaldopaciente.hc.fm.usp.br/agendamentos"
+              )
+            }
           />
           <IconCard
             title="Meus Exames"
             imgSrc={examesIcon}
             alt="Exames"
             href="https://portaldopaciente.hc.fm.usp.br/resultados"
+            onClick={() =>
+              handlePortalRedirect(
+                "https://portaldopaciente.hc.fm.usp.br/resultados"
+              )
+            }
           />
           <IconCard
             title="Minhas Receitas"
             imgSrc={receitasIcon}
             alt="Receitas Médicas"
             href="https://portaldopaciente.hc.fm.usp.br/receitas"
+            onClick={() =>
+              handlePortalRedirect(
+                "https://portaldopaciente.hc.fm.usp.br/receitas"
+              )
+            }
           />
           <IconCard
             title="Perfil do Paciente"
             imgSrc={perfilIcon}
             alt="Perfil do Paciente"
             href="https://portaldopaciente.hc.fm.usp.br/meus-dados"
+            onClick={() =>
+              handlePortalRedirect(
+                "https://portaldopaciente.hc.fm.usp.br/meus-dados"
+              )
+            }
           />
           <DarkModeToggle
             title="Alto Contraste"

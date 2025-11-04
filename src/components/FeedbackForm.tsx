@@ -275,7 +275,6 @@ export default function FeedbackForm() {
               <ButtonWrapper
                 type="submit"
                 className="w-full"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Enviar
               </ButtonWrapper>
