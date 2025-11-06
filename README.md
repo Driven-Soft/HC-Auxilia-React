@@ -15,7 +15,7 @@ Bem-vindo(a) à solução do challenge da disciplina de **FrontEnd Development E
 ## 📌 Objetivo
 
 O projeto **HC Auxilia React**, desenvolvido pelo nosso grupo **Driven Soft**, tem como principal objetivo **reduzir a taxa de absenteísmo em serviços de saúde digital de 20% para menos de 10%.**
-Para isso, a solução foi reconstruída em **React + TypeScript**, oferecendo uma experiência mais moderna, modular e escalável, sem abrir mão da **acessibilidade, usabilidade simplificada e suporte personalizado** durante o processo de agendamento, consulta e acompanhamento em saúde digital.
+Para isso, a solução foi reconstruída em **React (v19) + TypeScript**, oferecendo uma experiência mais moderna, modular e escalável, sem abrir mão da **acessibilidade, usabilidade simplificada e suporte personalizado** durante o processo de agendamento, consulta e acompanhamento em saúde digital.
 
 ---
 
@@ -32,14 +32,14 @@ Os princípios seguidos foram baseados nas **Heurísticas de Usabilidade de Jako
 
 Recursos adicionais:
 
-- **Assistente virtual (Watson Chat)** integrado via componente dedicado.
+- **Assistente virtual (Watson Chat)** integrado via componente dedicado (`src/components/ChatWatson.tsx`).
 - **Botão de ajuda sempre visível.**
-- **Formulário de feedback validado.**
+- **Formulário de feedback validado** (`src/components/FeedbackForm.tsx` + `src/routes/Feedback/Feedback.tsx`).
 - **Seções de consultas, cuidadores, manuais, FAQ e suporte digital** em destaque.
 
 ---
 
-## 📁 Estrutura de Pastas e Arquivos
+## 📁 Estrutura de Pastas e Arquivos (resumida)
 
 ```
 HC-Auxilia-React/
@@ -65,21 +65,27 @@ HC-Auxilia-React/
 │   │   ├── icones/           # Ícones e imagens gerais
 │   │   └── imgmanuais/       # Prints utilizados nos manuais
 │   │
-│   ├── components/ # 🧩 Componentes reutilizáveis
-│   │   ├── Header.tsx           # Cabeçalho principal
-│   │   ├── Footer.tsx           # Rodapé do site
-│   │   ├── ButtonWrapper.tsx    # Botões customizados
-│   │   ├── IconCard.tsx         # Cards com ícones
-│   │   ├── InfoDiv.tsx          # Div personalisada e padronizada
-│   │   ├── InfoText.tsx         # Texto padronizado pra usar dentro do InfoDiv
-│   │   ├── IntegranteCard.tsx   # Card de integrante reutilizável
-│   │   ├── ItensHeader.tsx      # Botões do header componentizados
-│   │   ├── ItemHeaderMobile.tsx # Botões do header componentizados para mobile
-│   │   ├── OpenCard.tsx         # Card que abre ao clicar
-│   │   ├── Wrapper.tsx          # Wrapper para envolver uma página p/ padronizar aparência
-│   │   ├── FeedbackForm.tsx     # Formulário de feedback
-│   │   ├── DarkModeToggle.tsx   # Alternância de tema (claro/escuro)
-│   │   └── VoltarButton.tsx     # Botão de voltar navegação
+│   ├── components/           # 🧩 Componentes reutilizáveis
+│   │   ├── AgendaCard.tsx
+│   │   ├── ButtonWrapper.tsx
+│   │   ├── ChatWatson.tsx
+│   │   ├── DarkModeToggle.tsx
+│   │   ├── FeedbackForm.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── IconCard.tsx
+│   │   ├── InfoDiv.tsx
+│   │   ├── InfoText.tsx
+│   │   ├── IntegranteCard.tsx
+│   │   ├── ItemHeaderMobile.tsx
+│   │   ├── ItensHeader.tsx
+│   │   ├── LoadingIcon.tsx
+│   │   ├── OpenCard.tsx
+│   │   ├── VoltarButton.tsx
+│   │   └── Wrapper.tsx
+│   │
+│   ├── context/              # Contextos e provider (ex: ApiProvider)
+│   │   └── Api/              # Contexto para chamadas/estado da API
 │   │
 │   ├── data/                 # 📊 Dados estáticos
 │   │   └── integrantes.ts    # Lista dos integrantes com infos
@@ -116,16 +122,31 @@ HC-Auxilia-React/
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias e dependências principais
 
-- **React 18 + TypeScript** → construção modular, tipada e escalável.
-- **Vite** → bundler rápido para desenvolvimento moderno.
-- **React Router DOM** → gerenciamento de rotas e navegação.
-- **React Hook Forms** → criação de formulários em React
-- **CSS3 / Tailwind-like responsividade** → estilos acessíveis e adaptativos.
-- **Chat Watson** → assistente virtual integrado.
-- **Boas práticas de acessibilidade (WCAG, Nielsen Heuristics).**
-- **Git + GitHub** → versionamento e colaboração em equipe.
+- **React v19**
+- **TypeScript (~5.8)**
+- **Vite (7.x)**
+- **React Router DOM (v7)**
+- **react-hook-form**
+- **tailwindcss**
+- **lucide-react (ícones)**
+- **@fontsource/inter**
+
+Dependências completas e versões estão no `package.json`.
+
+---
+
+## 🗺️ Rotas / Páginas principais
+
+- / (Home)
+- /manuais (Manuais: ComCadastro, SemCadastro, ManualTeleconsulta)
+- /integrantes (lista de integrantes)
+- /integrantes/:id (detalhe do integrante)
+- /contato (Contato + Notificações)
+- /feedback (Formulário de feedback)
+- /faq (Perguntas frequentes)
+- /sobre (Sobre o projeto)
 
 ---
 
@@ -143,7 +164,17 @@ HC-Auxilia-React/
 
 ## 📽️ Link do vídeo Pitch
 
-- 💾 [Vídeo Pitch](https://youtu.be/lOz-UBzhXnM)
+- 💾 [Vídeo Pitch](https://youtu.be/dAhKj4EIA0I)
+
+## Link do projeto na Vercel
+
+- 🌟 [HC-Auxilia-Vercel](https://hc-auxilia.vercel.app/)
+
+- ❗ Considere que a API requere aproximadamente 30s para ser inicializada após 15 minutos sem uso! Ao testar a aplicação, aguarde um pouco para as requisições carregarem.
+
+## Link da API feita em JAVA (RENDER)
+
+- 🛠️ [HC-Auxilia-API](https://hc-auxilia-api.onrender.com/)
 
 ---
 
