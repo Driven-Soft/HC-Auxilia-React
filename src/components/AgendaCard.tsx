@@ -2,9 +2,8 @@ import type { Exame } from "../types/exame";
 import seta from "../assets/icones/seta.png";
 import { Ban, CalendarOff } from "lucide-react";
 import { useState } from "react";
-import { useApi } from "../context/Api/useApi";
 import LoadingIcon from "./LoadingIcon";
-
+ 
 interface AgendaCardProps {
   exame: Exame;
   isOpen: boolean;
@@ -12,19 +11,11 @@ interface AgendaCardProps {
   onCancel: (exameId: number) => Promise<void> | void;
   className?: string;
 }
-
-const AgendaCard = ({
-  exame,
-  isOpen,
-  onToggle,
-  onCancel,
-  className,
-}: AgendaCardProps) => {
+ 
+const AgendaCard = ({ exame, isOpen, onToggle, onCancel, className }: AgendaCardProps) => {
   const [showConfirm, setShowConfirm] = useState(false);
   const [cancel, setCancel] = useState(false);
-  const { disablePut } = useApi();
-  const [showBlockedInfo, setShowBlockedInfo] = useState(false);
-
+ 
   return (
     <div className={`shadow-xl ${className || ""}`}>
       <div
@@ -36,7 +27,7 @@ const AgendaCard = ({
           <strong className="font-bold">{exame.nomeExame}</strong> —{" "}
           {exame.dataHoraExame}h
         </p>
-
+ 
         <img
           src={seta}
           alt="Exibir detalhes"
@@ -64,7 +55,7 @@ const AgendaCard = ({
               ? `Seção de Teleconsulta no aplicativo Portal do Paciente HC`
               : `${exame.rua}, ${exame.numero}, ${exame.bairro} — ${exame.cidade} ${exame.estado}`}
           </span>
-
+ 
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -77,7 +68,7 @@ const AgendaCard = ({
           </button>
         </p>
       </div>
-
+ 
       {showConfirm && (
         <div
           className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
@@ -101,14 +92,6 @@ const AgendaCard = ({
               </button>
               <button
                 onClick={() => {
-                  // Se disablePut estiver ativo, mostramos um popup informativo
-                  // explicando que exames não podem ser cancelados durante o NEXT.
-                  if (disablePut) {
-                    setShowConfirm(false);
-                    setShowBlockedInfo(true);
-                    return;
-                  }
-
                   setCancel(true);
                   onCancel(exame.idExame);
                   setShowConfirm(false);
@@ -122,35 +105,7 @@ const AgendaCard = ({
           </div>
         </div>
       )}
-
-      {showBlockedInfo && (
-        <div
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-          onClick={() => setShowBlockedInfo(false)}
-        >
-          <div
-            className="bg-white dark:bg-black p-6 mx-3 rounded-lg shadow-lg max-w-sm w-full dark:border-2"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="text-lg font-bold mb-2">Atenção</h2>
-            <p className="mb-4">
-              Em razão de uso durante o NEXT, exames não podem ser cancelados.
-            </p>
-            <p className="mb-4">
-              Porém a aplicação continuará funcionando normalmente após este período.
-            </p>
-            <div className="flex justify-end">
-              <button
-                onClick={() => setShowBlockedInfo(false)}
-                className="cursor-pointer px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
-              >
-                Fechar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
+ 
       {cancel && (
         <div className="p-4 bg-green-100 text-green-800 rounded-b-lg flex flex-row">
           <p>
@@ -162,5 +117,7 @@ const AgendaCard = ({
     </div>
   );
 };
-
+ 
 export default AgendaCard;
+ 
+ 

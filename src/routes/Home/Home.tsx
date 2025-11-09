@@ -18,7 +18,7 @@ import LoadingIcon from "../../components/LoadingIcon";
 import ButtonWrapper from "../../components/ButtonWrapper";
 
 const Home = () => {
-  const { apiUrl, disablePut } = useApi();
+  const { apiUrl } = useApi();
   const [exames, setExames] = useState<Exame[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -66,13 +66,6 @@ const Home = () => {
   // CANCELAR EXAME POR ID (marca status como 'F')
   async function handleCancel(id: number) {
     try {
-      // Se a flag disablePut estiver ativa, NÃO FAZEMOS NADA aqui.
-      // Isso garante que clicar em "DESMARCAR" não provoque mudanças locais
-      // nem chamadas ao backend enquanto a flag estiver ativa.
-      if (disablePut) {
-        return;
-      }
-
       const response = await fetch(`${apiUrl}/exames/${id}/finalizar`, {
         method: "PUT",
       });
